@@ -1,0 +1,166 @@
+/* Global Variables */
+:root {
+    --bg-white: #ffffff;
+    --bg-light: #f4fdfc; /* Very light teal/mint tint */
+    --text-main: #1e293b; /* Slate 800 */
+    --text-muted: #64748b; /* Slate 500 */
+    
+    --brand-teal: #14b8a6; /* Teal 500 */
+    --brand-teal-dark: #0f766e; /* Teal 700 */
+    --brand-teal-light: #ccfbf1; /* Teal 100 */
+    
+    --shadow-soft: 0 10px 40px rgba(20, 184, 166, 0.08); /* Teal tinted shadow */
+    --shadow-hover: 0 20px 40px rgba(20, 184, 166, 0.15);
+}
+
+body {
+    background-color: var(--bg-white);
+    color: var(--text-main);
+    overflow-x: hidden;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Typography Utilities */
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+.fw-800 { font-weight: 800; }
+
+.text-teal { color: var(--brand-teal) !important; }
+.text-teal-dark { color: var(--brand-teal-dark) !important; }
+.bg-teal { background-color: var(--brand-teal) !important; color: white; }
+.bg-teal-light { background-color: var(--brand-teal-light) !important; }
+.bg-light-tint { background-color: var(--bg-light) !important; }
+.bg-white { background-color: var(--bg-white) !important; }
+
+/* Buttons */
+.btn-teal {
+    background-color: var(--brand-teal);
+    color: white;
+    border: 1px solid var(--brand-teal);
+}
+.btn-teal:hover {
+    background-color: var(--brand-teal-dark);
+    border-color: var(--brand-teal-dark);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+.btn-outline-teal {
+    background-color: transparent;
+    color: var(--brand-teal);
+    border: 2px solid var(--brand-teal);
+}
+.btn-outline-teal:hover {
+    background-color: var(--brand-teal);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.transition-300 { transition: all 0.3s ease; }
+.transition-500 { transition: all 0.5s ease; }
+
+.shadow-soft { box-shadow: var(--shadow-soft) !important; }
+.shadow-hover { box-shadow: var(--shadow-hover) !important; }
+
+/* Navbar */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(20, 184, 166, 0.1);
+    transition: all 0.4s ease;
+}
+.nav-link {
+    color: var(--text-main) !important;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 1rem !important;
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--brand-teal) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: var(--bg-light);
+    position: relative;
+}
+.hero-shape {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background-color: var(--brand-teal-light);
+    border-radius: 50%;
+    top: -100px;
+    right: -100px;
+    z-index: 0;
+    opacity: 0.6;
+    filter: blur(80px);
+}
+.z-1 { z-index: 1; }
+.z-2 { z-index: 2; position: relative; }
+
+/* Cards */
+.service-card {
+    border: 1px solid rgba(20, 184, 166, 0.1);
+    border-radius: 24px;
+    transition: all 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    border-color: transparent;
+}
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background-color: var(--brand-teal-light);
+    color: var(--brand-teal-dark);
+}
+
+/* Doctor Cards */
+.doctor-card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+.doctor-card img {
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+.doctor-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Forms */
+.form-control, .form-select {
+    border: 1px solid rgba(20, 184, 166, 0.2);
+    border-radius: 12px;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.95rem;
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--brand-teal);
+    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.1);
+}
+
+/* Review Stars */
+.text-warning { color: #f59e0b !important; }
+
+/* Animations */
+.reveal-up {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal-up.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}

@@ -1,323 +1,603 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guardian. Ultimate Institutional Resilience</title>
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BizsiteSquad — We Build Websites That Drive Results</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  /* ===================== BASE ===================== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:   #04040f;
+    --navy2:  #080820;
+    --violet: #6c3fff;
+    --blue:   #00d4ff;
+    --glow:   #7b5fff;
+    --rose:   #ff3cac;
+    --text:   #f8fafc;
+    --muted:  #94a3b8;
+    --card:   rgba(255,255,255,0.03);
+    --border: rgba(255,255,255,0.06);
+    --r: 20px;
+    --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    cursor: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── cursor ── */
+  #cursor {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--blue);
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999;
+    mix-blend-mode: screen;
+    transition: transform .1s ease;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 10px var(--blue);
+  }
+  #cursor-ring {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: width .2s var(--ease-premium), height .2s var(--ease-premium), border-color .2s, transform .15s var(--ease-premium);
+  }
+
+  /* ── canvas ── */
+  #bg-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.4; }
+
+  /* ── nav ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 30px 8%;
+    background: transparent;
+    transition: all .4s var(--ease-premium);
+  }
+  nav.scrolled { padding: 18px 8%; background: rgba(4,4,15,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+  
+  .logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800; font-size: 1.5rem;
+    letter-spacing: -.02em;
+    color: #fff;
+    text-decoration: none;
+  }
+  .logo span { color: var(--blue); }
+  
+  .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted);
+    font-size: .85rem; font-weight: 500;
+    text-transform: uppercase; letter-spacing: .1em;
+    transition: color .3s;
+  }
+  .nav-links a:hover { color: #fff; }
+  
+  .nav-cta {
+    padding: 12px 28px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--violet), var(--blue));
+    color: #fff; font-size: .85rem; font-weight: 600;
+    text-decoration: none;
+    transition: all .3s;
+    box-shadow: 0 4px 15px rgba(108,63,255,0.2);
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(108,63,255,0.4); }
+
+  /* ── hero ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 160px 8% 100px;
+    position: relative;
+  }
+  .hero-inner {
+    display: grid; grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px; align-items: center;
+    width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(108,63,255,.08);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 100px;
+    padding: 8px 20px;
+    font-size: .75rem; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 35px;
+    font-family: 'Space Mono', monospace;
+  }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 8px var(--blue); animation: pulse 2s infinite; }
+  @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
+  
+  .hero-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -.03em;
+    margin-bottom: 30px;
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--violet) 50%, var(--rose) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: 1.15rem; color: var(--muted);
+    font-weight: 400; max-width: 500px;
+    margin-bottom: 45px;
+  }
+  
+  .hero-actions { display: flex; gap: 20px; }
+  .btn-primary {
+    padding: 18px 42px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--violet), var(--blue));
+    color: #fff; font-weight: 600; font-family: 'Outfit', sans-serif;
+    text-decoration: none; border: none; cursor: none;
+    box-shadow: 0 10px 30px rgba(108,63,255,0.25);
+    transition: all .3s var(--ease-premium);
+  }
+  .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 15px 45px rgba(108,63,255,0.45); }
+  .btn-ghost {
+    padding: 18px 42px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    color: #fff; font-weight: 600; font-family: 'Outfit', sans-serif;
+    text-decoration: none; cursor: none;
+    transition: all .3s var(--ease-premium);
+    backdrop-filter: blur(10px);
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); border-color: var(--blue); }
+
+  .hero-stats { display: flex; gap: 50px; margin-top: 60px; }
+  .stat-num { font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; color: #fff; line-height: 1; }
+  .stat-label { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-top: 10px; }
+
+  /* ── hero visual ── */
+  .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+  .orb-wrap { width: 500px; height: 500px; position: relative; }
+  .orb-core {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 240px; height: 240px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #8b5cf6, #3b82f6, #000);
+    box-shadow: 0 0 100px rgba(139, 92, 246, 0.4), inset 0 0 50px rgba(255,255,255,0.1);
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float { 0%, 100% { transform: translate(-50%, -50%); } 50% { transform: translate(-50%, -60%); } }
+  
+  .orb-ring {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 50%;
+    animation: spin linear infinite;
+  }
+  .orb-ring:nth-child(1) { width: 320px; height: 320px; animation-duration: 15s; }
+  .orb-ring:nth-child(2) { width: 420px; height: 420px; animation-duration: 25s; animation-direction: reverse; }
+  @keyframes spin { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+  /* ── sections ── */
+  section { padding: 120px 8%; }
+  .sec-tag { font-family: 'Space Mono', monospace; font-size: .75rem; color: var(--blue); text-transform: uppercase; letter-spacing: .2em; margin-bottom: 20px; display: block; }
+  .sec-title { font-family: 'Outfit', sans-serif; font-size: clamp(2.5rem, 4.5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 25px; }
+  .sec-sub { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin-bottom: 70px; }
+
+  /* ── internal spacing ── */
+  .container { max-width: 1400px; margin: 0 auto; }
+
+  /* ── services ── */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+  .srv-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--r);
+    padding: 50px 40px; transition: all .4s var(--ease-premium); position: relative; overflow: hidden;
+  }
+  .srv-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.06); border-color: var(--blue); }
+  .srv-icon { font-size: 2.5rem; margin-bottom: 30px; display: block; }
+  .srv-title { font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 15px; color: #fff; }
+  .srv-desc { font-size: .95rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── portfolio ── */
+  #portfolio { background: #060614; }
+  .port-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+  .port-card {
+    border-radius: var(--r); overflow: hidden; position: relative; aspect-ratio: 16/10;
+    border: 1px solid var(--border); background: #000; cursor: none;
+  }
+  .port-thumb { 
+    width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease-premium); 
+    background-size: cover; background-position: center;
+  }
+  .port-card:hover .port-thumb { transform: scale(1.05); }
+  
+  .port-overlay {
+    position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,4,15,0.95) 10%, transparent 60%);
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 40px;
+    opacity: 0; transition: all .4s var(--ease-premium); transform: translateY(20px);
+  }
+  .port-card:hover .port-overlay { opacity: 1; transform: translateY(0); }
+  
+  .port-cat { font-family: 'Space Mono', monospace; font-size: .7rem; color: var(--blue); text-transform: uppercase; margin-bottom: 10px; }
+  .port-name { font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
+  .port-btn { 
+    display: inline-flex; align-items: center; gap: 10px; align-self: flex-start;
+    padding: 12px 24px; border-radius: 99px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+    color: #fff; text-decoration: none; font-size: .85rem; font-weight: 600; transition: all .3s;
+  }
+  .port-btn:hover { background: #fff; color: #000; }
+
+  /* ── process ── */
+  .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 50px; }
+  .step-num { font-family: 'Outfit', sans-serif; font-size: 4rem; font-weight: 900; color: rgba(255,255,255,0.03); line-height: 1; margin-bottom: -30px; display: block; }
+  .step-title { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 15px; position: relative; }
+  .step-desc { font-size: .95rem; color: var(--muted); }
+
+  /* ── final cta ── */
+  .cta-wrap {
+    padding: 100px 60px; background: linear-gradient(135deg, rgba(108,63,255,0.1), rgba(0,212,255,0.05));
+    border: 1px solid rgba(108,63,255,0.2); border-radius: 40px; text-align: center; position: relative; overflow: hidden;
+  }
+  .cta-wrap::before { 
+    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; 
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%); pointer-events: none;
+  }
+
+  /* ── footer ── */
+  footer { padding: 80px 8% 40px; border-top: 1px solid var(--border); display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; }
+  .foot-logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.8rem; color: #fff; margin-bottom: 25px; display: block; text-decoration: none; }
+  .foot-desc { color: var(--muted); line-height: 1.8; max-width: 400px; }
+  .foot-title { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 25px; display: block; }
+  .foot-links { list-style: none; }
+  .foot-links li { margin-bottom: 15px; }
+  .foot-links a { color: var(--muted); text-decoration: none; transition: .3s; }
+  .foot-links a:hover { color: var(--blue); }
+
+  /* ── reveal ── */
+  .reveal { opacity: 0; transform: translateY(40px); transition: all .8s var(--ease-premium); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── mobile ── */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; text-align: center; }
+    .hero-visual { display: none; }
+    .hero-sub { margin: 0 auto 45px; }
+    .hero-actions, .hero-stats { justify-content: center; }
+    footer { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    footer { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hero-stats { flex-direction: column; gap: 30px; }
+    .sec-title { font-size: 2.8rem; }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Luxury Nav -->
-    <nav class="nav-midnight">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="#" class="brand-v6">GUARDIAN</a>
-            <div class="d-none d-lg-flex gap-5">
-                <a href="#strategy" class="nav-link-v6">Strategy</a>
-                <a href="#governance" class="nav-link-v6">Protocol</a>
-                <a href="#heritage" class="nav-link-v6">Heritage</a>
-                <a href="#expertise" class="nav-link-v6">Expertise</a>
-            </div>
-            <a href="#" class="btn-v6 btn-gold py-3 px-5">Concierge</a>
-        </div>
-    </nav>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="bg-canvas"></canvas>
 
-    <!-- Hero V6 -->
-    <section class="hero-v6">
-        <img src="assets/hero_v6.png" alt="Midnight Prestige" class="hero-img-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 hero-content-v6">
-                    <span class="uppercase-accent text-gold d-block mb-3">Institutional Distinction</span>
-                    <h1 class="hero-title-v6">Resilience engineered <br>for the <span class="text-gold">0.1%</span></h1>
-                    <p class="lead text-gray-off mb-5" style="max-width: 500px;">The world's most complex enterprises require more than insurance. They require structural sovereignty and specialized risk engineering.</p>
-                    <div class="d-flex gap-4">
-                        <a href="#" class="btn-v6 btn-gold">Enter Concierge</a>
-                        <a href="#" class="btn-v6 border border-white text-white">Our Protocol</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo">Bizsite<span>Squad</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="mailto:hello@bizsitesquad.com">Contact</a></li>
+  </ul>
+  <a href="#final-cta" class="nav-cta">Let's Talk</a>
+</nav>
 
-    <!-- Strategy Protocol -->
-    <section id="strategy" class="section-v6">
-        <div class="container">
-            <span class="uppercase-accent text-gold d-block mb-4">The Methodology</span>
-            <div class="row align-items-end mb-5">
-                <div class="col-lg-8">
-                    <h2 class="section-title-v6 mb-0">Engineered for absolute <br><span class="text-gold">certainty.</span></h2>
-                </div>
-            </div>
-            <div class="row g-1">
-                <div class="col-lg-4">
-                    <div class="risk-grid-item">
-                        <h4 class="mb-4">Structural Audit</h4>
-                        <p class="text-gray-off small">We analyze the deep architecture of your enterprise to identify hidden systemic risks before they materialize.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="risk-grid-item">
-                        <h4 class="mb-4">Risk Sovereignty</h4>
-                        <p class="text-gray-off small">Ensuring your asset pool remains independent of external market volatility and geopolitical shifts.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="risk-grid-item">
-                        <h4 class="mb-4">Shadow Advisory</h4>
-                        <p class="text-gray-off small">24/7 intelligence integration with your leadership team for real-time crisis mitigation.</p>
-                    </div>
-                </div>
-            </div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge reveal"><span class="badge-dot"></span>Next-Gen Web Assembly</div>
+      <h1 class="hero-title reveal">
+        We Build <span class="text-gradient">Websites</span> That Drive <span class="text-gradient">Results</span>
+      </h1>
+      <p class="hero-sub reveal">Engineering elite-performance digital experiences for the world's most innovative brands. Fast, bold, and functional.</p>
+      <div class="hero-actions reveal">
+        <a href="#final-cta" class="btn-primary">Start Your Project</a>
+        <a href="#portfolio" class="btn-ghost">Explore Archive</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat-item">
+          <div class="stat-num" data-target="250">0</div>
+          <div class="stat-label">Projects Released</div>
         </div>
-    </section>
-
-    <!-- NEW: Transparency & Governance (Section 4) -->
-    <section id="governance" class="section-v6 bg-onyx">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <span class="uppercase-accent text-gold d-block mb-4">Governance Protocol</span>
-                    <h2 class="section-title-v6">Radical transparency. <br>Elite accountability.</h2>
-                    <p class="text-gray-off mb-5">Our governance framework exceeds international standards, providing you with absolute oversight of your risk portfolio and asset protection strata.</p>
-                    <div class="d-flex flex-column gap-4">
-                        <div class="d-flex gap-3 align-items-start">
-                            <i class="fas fa-microchip text-gold mt-1"></i>
-                            <div>
-                                <h6 class="mb-1 fw-bold">Algorithmic Governance</h6>
-                                <p class="text-gray-off small mb-0">Removing human bias from risk assessment through verified neural auditing.</p>
-                            </div>
-                        </div>
-                        <div class="d-flex gap-3 align-items-start">
-                            <i class="fas fa-fingerprint text-gold mt-1"></i>
-                            <div>
-                                <h6 class="mb-1 fw-bold">Biometric Security</h6>
-                                <p class="text-gray-off small mb-0">Tier-1 security protocols for all dashboard access and asset movements.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-1"></div>
-                <div class="col-lg-6">
-                    <div class="p-5 border border-white border-opacity-5">
-                        <img src="assets/tech_v4.png" alt="Intelligence" class="img-fluid heritage-img">
-                    </div>
-                </div>
-            </div>
+        <div class="stat-item">
+          <div class="stat-num" data-target="99">0</div>
+          <div class="stat-label">% Satisfaction</div>
         </div>
-    </section>
-
-    <!-- NEW: Bespoke Concierge (Section 5) -->
-    <section class="section-v6">
-        <div class="container">
-            <div class="row g-0 align-items-stretch">
-                <div class="col-lg-6">
-                    <img src="assets/concierge_v6.jpg" alt="Concierge" class="img-fluid h-100 object-fit-cover shadow-lg">
-                </div>
-                <div class="col-lg-6">
-                    <div class="card-v6">
-                        <span class="uppercase-accent text-gold d-block mb-4">The VIP Experience</span>
-                        <h2 class="section-title-v6 mb-4">Bespoke Advisory <br><span class="text-gold">Concierge.</span></h2>
-                        <p class="text-gray-off mb-5">Your dedicated Private Risk Liaison is available 24/7, providing a 1-on-1 experience tailored to the needs of ultra-high-net-worth leadership.</p>
-                        <ul class="list-unstyled mb-5">
-                            <li class="mb-3 text-gold"><i class="fas fa-check-circle me-3"></i> Private Dedicated Network</li>
-                            <li class="mb-3 text-gold"><i class="fas fa-check-circle me-3"></i> Monthly Strategic Deep-Dives</li>
-                            <li class="mb-3 text-gold"><i class="fas fa-check-circle me-3"></i> Unlimited Crisis Consulting</li>
-                        </ul>
-                        <a href="#" class="btn-v6 btn-gold">Request Access</a>
-                    </div>
-                </div>
-            </div>
+        <div class="stat-item">
+          <div class="stat-num" data-target="15">0</div>
+          <div class="stat-label">Industry Awards</div>
         </div>
-    </section>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="orb-wrap">
+        <div class="orb-ring"></div>
+        <div class="orb-ring"></div>
+        <div class="orb-core"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- NEW: Institutional Heritage (Section 6) -->
-    <section id="heritage" class="section-v6 bg-onyx">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="uppercase-accent text-gold d-block mb-4">The Legacy</span>
-                <h2 class="section-title-v6">Three decades of <br>unshakable <span class="text-gold">heritage.</span></h2>
-            </div>
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-4">
-                    <div class="text-end">
-                        <h4 class="text-gold mb-3">1995</h4>
-                        <p class="small text-gray-off">Founded in London’s financial heart to redefine the concept of institutional safety.</p>
-                    </div>
-                    <div class="text-end mt-5">
-                        <h4 class="text-gold mb-3">2010</h4>
-                        <p class="small text-gray-off">Expanded to Singapore and Zurich, serving the new global economic frontiers.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <img src="assets/heritage_v6.jpg" alt="Heritage" class="img-fluid heritage-img rounded-circle p-4 border border-gold">
-                </div>
-                <div class="col-lg-4">
-                    <div>
-                        <h4 class="text-gold mb-3">2026</h4>
-                        <p class="small text-gray-off">Leading the transition to digital-first risk engineering for the next generation.</p>
-                    </div>
-                    <div class="mt-5">
-                        <h4 class="text-gold mb-3">Vision</h4>
-                        <p class="small text-gray-off">To remain the invisible pillar of stability for the builders of the future.</p>
-                    </div>
-                </div>
-            </div>
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="reveal">
+      <span class="sec-tag">// Expertise</span>
+      <h2 class="sec-title">Digital Solutions <br>Built for the Future</h2>
+      <p class="sec-sub">We combine technical precision with creative flair to build scalable growth engines.</p>
+    </div>
+    <div class="services-grid">
+      <div class="srv-card reveal">
+        <span class="srv-icon">⚡</span>
+        <h3 class="srv-title">High-Speed Development</h3>
+        <p class="srv-desc">Server-side optimized architectures that load globally in under 1.2s. Performance is our obsession.</p>
+      </div>
+      <div class="srv-card reveal" style="transition-delay: 0.1s;">
+        <span class="srv-icon">💎</span>
+        <h3 class="srv-title">Premium UI/UX Design</h3>
+        <p class="srv-desc">Immersive interfaces that tell your story and guide users with psychological precision.</p>
+      </div>
+      <div class="srv-card reveal" style="transition-delay: 0.2s;">
+        <span class="srv-icon">🤖</span>
+        <h3 class="srv-title">AI & Growth Engines</h3>
+        <p class="srv-desc">Integrating cutting-edge automation and data strategies to scale your revenue autonomously.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="reveal">
+      <span class="sec-tag">// Selected Work</span>
+      <h2 class="sec-title">Featured Projects</h2>
+      <p class="sec-sub">Deep dives into the structural architectures we've deployed recently.</p>
+    </div>
+    <div class="port-grid">
+      <!-- Project 1: Salon -->
+      <div class="port-card reveal">
+        <div class="port-thumb" style="background-image: url('project_salon.png')"></div>
+        <div class="port-overlay">
+          <span class="port-cat">SALON / LUXURY</span>
+          <h3 class="port-name">Aura Aesthetic Hub</h3>
+          <a href="salon/index.html" class="port-btn">Launch Assembly ↗</a>
         </div>
-    </section>
-
-    <!-- NEW: Global Risk Map/Grid (Section 7) -->
-    <section class="section-v6">
-        <div class="container">
-            <span class="uppercase-accent text-gold d-block mb-4">Global Reach</span>
-            <h2 class="section-title-v6">Protecting assets across <br>every critical hub.</h2>
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="p-5 border border-white border-opacity-5 text-center">
-                        <h1 class="text-gold mb-3">ZRH</h1>
-                        <span class="uppercase-accent small d-block">Zurich</span>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="p-5 border border-white border-opacity-5 text-center">
-                        <h1 class="text-gold mb-3">LON</h1>
-                        <span class="uppercase-accent small d-block">London</span>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="p-5 border border-white border-opacity-5 text-center">
-                        <h1 class="text-gold mb-3">SGP</h1>
-                        <span class="uppercase-accent small d-block">Singapore</span>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="p-5 border border-white border-opacity-5 text-center">
-                        <h1 class="text-gold mb-3">NYC</h1>
-                        <span class="uppercase-accent small d-block">New York</span>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <!-- Project 2: Clinic -->
+      <div class="port-card reveal" style="transition-delay: 0.1s;">
+        <div class="port-thumb" style="background-image: url('project_clinic.png')"></div>
+        <div class="port-overlay">
+          <span class="port-cat">CLINIC / HEALTHCARE</span>
+          <h3 class="port-name">Med-Art Platform</h3>
+          <a href="clinic/index.html" class="port-btn">Launch Assembly ↗</a>
         </div>
-    </section>
-
-    <!-- Executive Expertise -->
-    <section id="expertise" class="section-v6 bg-onyx">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <img src="assets/portrait_v6.png" alt="David Sterling" class="img-fluid shadow-lg">
-                </div>
-                <div class="col-lg-6">
-                    <span class="uppercase-accent text-gold d-block mb-4">Leadership</span>
-                    <h2 class="section-title-v6 mb-4">The architect of <br><span class="text-gold">resilience.</span></h2>
-                    <p class="text-gray-off mb-5">"In a world defined by volatility, our mission is to provide the silence. The silence that allows leaders to focus on vision while we manage the chaos."</p>
-                    <div>
-                        <h4 class="mb-1">David Sterling</h4>
-                        <span class="uppercase-accent text-gold small">Founder & Chief Advisor</span>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <!-- Project 3: Restaurant -->
+      <div class="port-card reveal" style="transition-delay: 0.2s;">
+        <div class="port-thumb" style="background: linear-gradient(135deg, #1a1a1a, #333)">
+            <div style="height:100%; display:flex; align-items:center; justify-content:center; font-family:'Outfit'; font-size:3rem; color:rgba(255,255,255,0.1)">RESTAURANT UI</div>
         </div>
-    </section>
-
-    <!-- NEW: Testimonial Editorial (Section 8) -->
-    <section class="section-v6">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <i class="fas fa-quote-left text-gold fa-3x mb-5"></i>
-                    <p class="testimonial-v6 mb-5">"Guardian isn't a vendor. They are the invisible silent partner that allowed our IPO to navigate a global market breakdown with zero interruption to our capital pool."</p>
-                    <span class="uppercase-accent text-gold">CEO, Global Tech Infrastructure</span>
-                </div>
-            </div>
+        <div class="port-overlay">
+          <span class="port-cat">DINING / HOSPITALITY</span>
+          <h3 class="port-name">Velvet Elite Dining</h3>
+          <a href="restaurant/index.html" class="port-btn">Launch Assembly ↗</a>
         </div>
-    </section>
-
-    <!-- Claims Efficiency -->
-    <section class="section-padding bg-onyx">
-        <div class="container">
-            <div class="row g-1">
-                <div class="col-md-4">
-                    <div class="stat-box-v6">
-                        <span class="stat-num-v6">99.8%</span>
-                        <span class="uppercase-accent small">Settlement Ratio</span>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="stat-box-v6">
-                        <span class="stat-num-v6">$14B+</span>
-                        <span class="uppercase-accent small">Assets Under Protection</span>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="stat-box-v6">
-                        <span class="stat-num-v6">45m</span>
-                        <span class="uppercase-accent small">Elite Response Time</span>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <!-- Project 4: Photography -->
+      <div class="port-card reveal" style="transition-delay: 0.3s;">
+        <div class="port-thumb" style="background-image: url('project_photography.png')"></div>
+        <div class="port-overlay">
+          <span class="port-cat">CREATIVE / ARCHIVE</span>
+          <h3 class="port-name">Focus Creative Hub</h3>
+          <a href="photography/index.html" class="port-btn">Launch Assembly ↗</a>
         </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="section-v6 text-center">
-        <div class="container">
-            <h2 class="section-title-v6">Secure your <span class="text-gold">legacy</span> today.</h2>
-            <p class="text-gray-off mb-5 lead">Accepting applications for the Q3 2026 advisory intake.</p>
-            <a href="#" class="btn-v6 btn-gold p-4 px-5">Submit Application</a>
+      </div>
+      <!-- Project 5: Tech/SaaS -->
+      <div class="port-card reveal" style="transition-delay: 0.4s;">
+        <div class="port-thumb" style="background: linear-gradient(135deg, #001a40, #00d4ff)"></div>
+        <div class="port-overlay">
+          <span class="port-cat">TECH / SAAS</span>
+          <h3 class="port-name">Nexus Cloud Insights</h3>
+          <a href="#" class="port-btn">Study WIP ↗</a>
         </div>
-    </section>
-
-    <!-- Footer v6 -->
-    <footer class="v6 bg-onyx">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-lg-4">
-                    <a href="#" class="brand-v6 mb-4 d-block">GUARDIAN</a>
-                    <p class="text-gray-off small">Ultimate institutional safety for the world's most complex operations. Managed from London, Zurich, and Singapore.</p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h6 class="uppercase-accent text-gold small mb-4">Connect</h6>
-                            <a href="#" class="nav-link-v6 d-block mb-2">Concierge</a>
-                            <a href="#" class="nav-link-v6 d-block mb-2">Network</a>
-                        </div>
-                        <div class="col-md-4">
-                            <h6 class="uppercase-accent text-gold small mb-4">Protocol</h6>
-                            <a href="#" class="nav-link-v6 d-block mb-2">Privacy</a>
-                            <a href="#" class="nav-link-v6 d-block mb-2">Terms</a>
-                        </div>
-                        <div class="col-md-4">
-                            <h6 class="uppercase-accent text-gold small mb-4">Intel</h6>
-                            <div class="input-group">
-                                <input type="email" class="form-control bg-midnight border-0 text-white rounded-0" placeholder="Invite Code">
-                                <button class="btn btn-gold rounded-0"><i class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5 pt-5 opacity-50 small">
-                <p>&copy; 2026 Guardian Prestige Protection. Sovereignty as standard.</p>
-            </div>
+      </div>
+      <!-- Project 6: Finance -->
+      <div class="port-card reveal" style="transition-delay: 0.5s;">
+        <div class="port-thumb" style="background: linear-gradient(135deg, #4c0099, #6c3fff)"></div>
+        <div class="port-overlay">
+          <span class="port-cat">FINTECH / ANALYTICS</span>
+          <h3 class="port-name">FinTrack Global</h3>
+          <a href="#" class="port-btn">Study WIP ↗</a>
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav-midnight');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="reveal">
+      <span class="sec-tag">// The Assembly</span>
+      <h2 class="sec-title">Our Master Process</h2>
+      <p class="sec-sub">Clean execution from blueprint to global deployment.</p>
+    </div>
+    <div class="process-steps">
+      <div class="step reveal">
+        <span class="step-num">01</span>
+        <h4 class="step-title">Discovery</h4>
+        <p class="step-desc">Identifying brand DNA and technical feasibility roadmaps.</p>
+      </div>
+      <div class="step reveal" style="transition-delay: 0.1s;">
+        <span class="step-num">02</span>
+        <h4 class="step-title">Architecture</h4>
+        <p class="step-desc">Designing low-friction UI frames and structural flows.</p>
+      </div>
+      <div class="step reveal" style="transition-delay: 0.2s;">
+        <span class="step-num">03</span>
+        <h4 class="step-title">Assembly</h4>
+        <p class="step-desc">Developing scalable code bases with high-end motion.</p>
+      </div>
+      <div class="step reveal" style="transition-delay: 0.3s;">
+        <span class="step-num">04</span>
+        <h4 class="step-title">Launch</h4>
+        <p class="step-desc">Global rollout and data-driven performance scaling.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="final-cta">
+  <div class="container">
+    <div class="cta-wrap reveal">
+      <h2 class="sec-title">Ready to build the <br> <span class="text-gradient">next big thing?</span></h2>
+      <p class="sec-sub" style="margin: 0 auto 50px;">Let's discuss your vision and turn it into a high-converting masterpiece.</p>
+      <div class="hero-actions" style="justify-content: center;">
+        <a href="mailto:hello@bizsitesquad.com" class="btn-primary">Launch Conversation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-col">
+    <a href="#" class="foot-logo">Bizsite<span>Squad</span></a>
+    <p class="foot-desc">Premium digital web assembly for high-growth businesses. Redefining the standard of web development.</p>
+  </div>
+  <div class="foot-col">
+    <span class="foot-title">Navigation</span>
+    <ul class="foot-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Projects</a></li>
+      <li><a href="#process">Process</a></li>
+    </ul>
+  </div>
+  <div class="foot-col">
+    <span class="foot-title">Contact</span>
+    <ul class="foot-links">
+      <li><a href="mailto:hello@bizsitesquad.com">hello@bizsitesquad.com</a></li>
+      <li><a href="#">X / Twitter</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div style="padding: 20px 8%; text-align: center; border-top: 1px solid var(--border); font-size: .8rem; color: var(--muted); background: var(--navy)">
+  © 2026 BIZSITESQUAD ASSEMBLY. ALL RIGHTS RESERVED.
+</div>
+
+<script>
+  /* ── custom cursor ── */
+  const cursor = document.getElementById('cursor');
+  const ring   = document.getElementById('cursor-ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+  function animCursor(){
+    rx += (mx - rx) * .18;
+    ry += (my - ry) * .18;
+    cursor.style.left = mx+'px'; cursor.style.top = my+'px';
+    ring.style.left   = rx+'px'; ring.style.top  = ry+'px';
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+
+  document.querySelectorAll('a, button, .srv-card, .port-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(0)';
+      ring.style.width = '60px'; ring.style.height = '60px';
+      ring.style.backgroundColor = 'rgba(108,63,255,0.1)';
+      ring.style.borderColor = 'var(--blue)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+      ring.style.width = '36px'; ring.style.height = '36px';
+      ring.style.backgroundColor = 'transparent';
+      ring.style.borderColor = 'rgba(139, 92, 246, 0.4)';
+    });
+  });
+
+  /* ── canvas particles ── */
+  const cvs = document.getElementById('bg-canvas');
+  const ctx = cvs.getContext('2d');
+  let W, H, particles=[];
+  function resize(){ W=cvs.width=window.innerWidth; H=cvs.height=window.innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+  
+  class Particle {
+    constructor(){ this.reset(); }
+    reset(){
+      this.x = Math.random()*W; this.y = Math.random()*H;
+      this.r = Math.random()*1.5+0.5;
+      this.vx = (Math.random()-0.5)*0.2; this.vy = (Math.random()-0.5)*0.2;
+      this.a = Math.random()*0.5+0.1;
+    }
+    update(){ this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>W||this.y<0||this.y>H) this.reset(); }
+    draw(){ ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fillStyle=`rgba(139,92,246,${this.a})`; ctx.fill(); }
+  }
+  for(let i=0;i<100;i++) particles.push(new Particle());
+  function animCanvas(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{ p.update(); p.draw(); });
+    requestAnimationFrame(animCanvas);
+  }
+  animCanvas();
+
+  /* ── navbar scroll ── */
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', ()=> nav.classList.toggle('scrolled', window.scrollY > 40));
+
+  /* ── reveal on scroll ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ── counter animation ── */
+  function animateCounter(el, target){
+    const dur=2000, step=16;
+    let current=0;
+    const inc = target / (dur/step);
+    const id = setInterval(() => {
+      current += inc;
+      if(current >= target) { el.textContent = target + (target === 99 ? '%' : '+'); clearInterval(id); }
+      else { el.textContent = Math.floor(current) + (target === 99 ? '%' : '+'); }
+    }, step);
+  }
+  const statItems = document.querySelectorAll('.stat-num');
+  const statObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ animateCounter(e.target, +e.target.dataset.target); statObserver.unobserve(e.target); }});
+  }, { threshold: 0.5 });
+  statItems.forEach(s => statObserver.observe(s));
+</script>
+
 </body>
 </html>

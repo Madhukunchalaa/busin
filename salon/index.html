@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina | Luxury Beauty & Spa</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
+
+    <!-- 1. Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top py-3" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand font-serif fw-bold fs-3 letter-spacing-2 text-uppercase" href="#">
+                Lumina<span class="text-rose fs-4">.</span>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars fs-3 text-dark"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto font-sans fw-medium text-uppercase text-xs letter-spacing-2">
+                    <li class="nav-item mx-2"><a class="nav-link active" href="#hero">Home</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="#about">Our Essence</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="#team">Experts</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="#reviews">Reviews</a></li>
+                </ul>
+                <a href="#booking" class="btn btn-outline-deep rounded-0 px-4 py-2 font-sans fw-medium text-uppercase text-xs letter-spacing-1 mt-3 mt-lg-0 transition-300">
+                    Book an Appointment
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section -->
+    <section id="hero" class="hero-section position-relative d-flex align-items-center min-vh-100">
+        <div class="hero-overlay position-absolute w-100 h-100 top-0 start-0 z-1"></div>
+        <div class="container position-relative z-2 pt-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-8 pt-5 mt-5 mt-lg-0 reveal-up">
+                    <span class="font-sans text-uppercase text-xs fw-bold letter-spacing-3 text-deep mb-3 d-block border-bottom border-rose d-inline-block pb-1">Bespoke Beauty Experiences</span>
+                    <h1 class="display-3 font-serif fw-bold text-dark lh-sm mb-4">
+                        Discover Your <br><span class="fst-italic text-deep">Natural Radiance</span>
+                    </h1>
+                    <p class="font-sans fw-light text-muted fs-5 mb-5 lh-lg pe-lg-5">
+                        Lumina is a sanctuary of refined elegance where expert stylists and therapists cultivate your inner and outer beauty.
+                    </p>
+                    <div class="d-flex flex-column flex-sm-row gap-3">
+                        <a href="#booking" class="btn btn-rose rounded-0 px-5 py-3 font-sans text-uppercase fw-medium letter-spacing-1 transition-300 shadow-sm">
+                            <i class="fa-regular fa-calendar me-2"></i> Book Session
+                        </a>
+                        <a href="#services" class="btn btn-outline-deep rounded-0 px-5 py-3 font-sans text-uppercase fw-medium letter-spacing-1 transition-300">
+                            Our Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Our Essence (About) -->
+    <section id="about" class="py-5 bg-white position-relative">
+        <div class="container py-5 my-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 reveal-left position-relative">
+                    <div class="p-3 border border-rose position-relative z-1 bg-white">
+                        <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=800" alt="Spa Creams" class="img-fluid w-100">
+                    </div>
+                    <div class="bg-blush position-absolute w-100 h-100 top-50 start-50 translate-middle z-0" style="margin-left: -20px; margin-top: 20px;"></div>
+                </div>
+                <div class="col-lg-6 offset-lg-1 reveal-right">
+                    <h5 class="font-sans text-deep text-uppercase text-xs fw-bold letter-spacing-3 mb-3">Our Philosophy</h5>
+                    <h2 class="display-5 font-serif fw-bold text-dark mb-4">A Haven of <span class="fst-italic">Tranquility</span></h2>
+                    <p class="font-sans text-muted fw-light lh-lg mb-4">We believe that true beauty begins with taking time for yourself. Our carefully curated treatments combine ancient holistic traditions with modern dermatological science to provide unparalleled results.</p>
+                    <p class="font-sans text-muted fw-light lh-lg mb-4">Every detail of Lumina—from the calming aroma of our essential oils to the plush texture of our organic linens—has been designed to transport you from the stress of daily life.</p>
+                    <div class="mt-5 d-flex align-items-center">
+                        <img src="https://images.unsplash.com/photo-1595959183011-8b6fa088d8fc?auto=format&fit=crop&q=80&w=150" alt="Founder" class="rounded-circle me-4 object-fit-cover" style="width: 70px; height: 70px;">
+                        <div>
+                            <h6 class="font-serif fw-bold text-dark mb-0 fs-5">Isabella Rossi</h6>
+                            <span class="font-sans text-muted text-xs text-uppercase letter-spacing-1">Founder & Creative Director</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Services Overview -->
+    <section id="services" class="py-5 bg-cream">
+        <div class="container py-5">
+            <div class="text-center mb-5 pb-3 reveal-up">
+                <h5 class="font-sans text-deep text-uppercase text-xs fw-bold letter-spacing-3 mb-3">Service Menu</h5>
+                <h2 class="display-5 font-serif fw-bold text-dark">Tailored <span class="fst-italic">Treatments</span></h2>
+                <div class="service-divider"></div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Hair Care -->
+                <div class="col-lg-4 col-md-6 reveal-up" style="transition-delay: 100ms;">
+                    <div class="bg-white p-5 h-100 text-center card-hover border border-light shadow-sm group cursor-pointer">
+                        <div class="bg-blush rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4 transition-300" style="width: 80px; height: 80px;">
+                            <i class="fa-solid fa-scissors fs-3 text-deep"></i>
+                        </div>
+                        <h4 class="font-serif fw-bold text-dark mb-3">Hair Styling</h4>
+                        <p class="font-sans text-muted fw-light text-sm mb-4">Precision cuts, bespoke coloring, and deep restorative treatments designed to elevate your personal style.</p>
+                        <a href="#" class="font-sans text-uppercase text-xs fw-bold letter-spacing-1 text-deep text-decoration-none">View Pricing <i class="fa-solid fa-angle-right ms-1"></i></a>
+                    </div>
+                </div>
+                <!-- Skin Care -->
+                <div class="col-lg-4 col-md-6 reveal-up" style="transition-delay: 200ms;">
+                    <div class="bg-white p-5 h-100 text-center card-hover border border-light shadow-sm group cursor-pointer">
+                        <div class="bg-blush rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4 transition-300" style="width: 80px; height: 80px;">
+                            <i class="fa-solid fa-spa fs-3 text-deep"></i>
+                        </div>
+                        <h4 class="font-serif fw-bold text-dark mb-3">Skin & Facials</h4>
+                        <p class="font-sans text-muted fw-light text-sm mb-4">Advanced dermal therapies and organic facials customized to your unique complexion and skin goals.</p>
+                        <a href="#" class="font-sans text-uppercase text-xs fw-bold letter-spacing-1 text-deep text-decoration-none">View Pricing <i class="fa-solid fa-angle-right ms-1"></i></a>
+                    </div>
+                </div>
+                <!-- Body Spa -->
+                <div class="col-lg-4 col-md-6 mx-auto reveal-up" style="transition-delay: 300ms;">
+                    <div class="bg-white p-5 h-100 text-center card-hover border border-light shadow-sm group cursor-pointer">
+                        <div class="bg-blush rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4 transition-300" style="width: 80px; height: 80px;">
+                            <i class="fa-solid fa-leaf fs-3 text-deep"></i>
+                        </div>
+                        <h4 class="font-serif fw-bold text-dark mb-3">Body & Massage</h4>
+                        <p class="font-sans text-muted fw-light text-sm mb-4">Aromatic hot stone massages, deep tissue release, and full-body exfoliation rituals for total relaxation.</p>
+                        <a href="#" class="font-sans text-uppercase text-xs fw-bold letter-spacing-1 text-deep text-decoration-none">View Pricing <i class="fa-solid fa-angle-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Featured Transformation (Before/After alternative) -->
+    <section class="py-5 bg-white">
+        <div class="container-fluid px-0">
+            <div class="row g-0 align-items-center">
+                <div class="col-lg-6 order-lg-2 reveal-right">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=1000" class="img-fluid w-100 object-fit-cover" style="height: 600px;" alt="Beauty Model">
+                </div>
+                <div class="col-lg-6 order-lg-1 bg-white p-5 p-xl-10 text-center text-lg-start reveal-left d-flex flex-column justify-content-center align-items-center align-items-lg-start" style="min-height: 600px;">
+                    <div class="px-md-5">
+                        <h5 class="font-sans text-deep text-uppercase text-xs fw-bold letter-spacing-3 mb-3">The Signature Look</h5>
+                        <h2 class="display-5 font-serif fw-bold text-dark mb-4">Refined <span class="fst-italic text-rose">Elegance</span></h2>
+                        <p class="font-sans fw-light text-muted lh-lg mb-5 pe-lg-5">Our master colorists specialize in balayage, lived-in color, and seamless blending that enhances your natural features while minimizing maintenance.</p>
+                        <div class="row text-center text-lg-start g-4 w-100">
+                            <div class="col-6 col-sm-4">
+                                <h3 class="font-serif fw-bold text-dark mb-1">Top 1%</h3>
+                                <span class="font-sans text-muted text-xs text-uppercase letter-spacing-1">Stylists</span>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <h3 class="font-serif fw-bold text-dark mb-1">100%</h3>
+                                <span class="font-sans text-muted text-xs text-uppercase letter-spacing-1">Organic Products</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Special Offers -->
+    <section id="offers" class="py-5 bg-rose text-white text-center position-relative overflow-hidden">
+        <div class="position-absolute top-50 start-50 translate-middle w-100 h-100 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M54.627 0l1.373 5.373L60 6.746l-4.001 1.373L54.627 13.49l-1.373-5.372L49.254 6.746l4.001-1.373L54.627 0zM24 16.5l3.25 12.25L39.5 32l-12.25 3.25L24 47.5l-3.25-12.25L8.5 32l12.25-3.25L24 16.5zM46 39l2.167 8.333L56.5 49.5l-8.333 2.167L46 60l-2.167-8.333L35.5 49.5l8.333-2.167L46 39z\' fill=\'%23ffffff\' fill-rule=\'evenodd\'/%3E%3C/svg%3E'); z-index: 0;"></div>
+        <div class="container py-5 my-4 position-relative z-1 reveal-up">
+            <h5 class="font-sans text-white-50 text-uppercase text-xs fw-bold letter-spacing-3 mb-3">Bridal & Special Events</h5>
+            <h2 class="display-4 font-serif fw-bold text-white mb-4">Complete <span class="fst-italic">Bridal Care</span></h2>
+            <p class="font-sans fw-light text-white text-opacity-75 fs-5 mb-5 mx-auto" style="max-width: 600px;">Exclusive packages including pre-wedding skin preparation, trial sessions, and on-site styling for you and your bridal party.</p>
+            <a href="#contact" class="btn btn-outline-light rounded-0 px-5 py-3 font-sans text-uppercase fw-medium letter-spacing-1 transition-300">
+                Inquire About Dates
+            </a>
+        </div>
+    </section>
+
+    <!-- 7. Our Team -->
+    <section id="team" class="py-5 bg-cream">
+        <div class="container py-5">
+            <div class="text-center mb-5 pb-3 reveal-up">
+                <h5 class="font-sans text-deep text-uppercase text-xs fw-bold letter-spacing-3 mb-3">The Artisans</h5>
+                <h2 class="display-5 font-serif fw-bold text-dark">Meet Our <span class="fst-italic">Experts</span></h2>
+                <div class="service-divider"></div>
+            </div>
+            
+            <div class="row g-5 justify-content-center">
+                <!-- Team 1 -->
+                <div class="col-lg-3 col-md-6 reveal-up" style="transition-delay: 100ms;">
+                    <div class="text-center group">
+                        <div class="position-relative overflow-hidden rounded-circle mb-4 border border-5 border-white shadow-soft image-zoom mx-auto" style="width: 200px; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1595959183011-8b6fa088d8fc?auto=format&fit=crop&q=80&w=400" alt="Isabella" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                        <h5 class="font-serif fw-bold text-dark mb-1">Isabella R.</h5>
+                        <p class="font-sans text-muted text-xs text-uppercase letter-spacing-1 mb-3">Master Stylist</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="#" class="text-muted text-hover-deep transition-300"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Team 2 -->
+                <div class="col-lg-3 col-md-6 reveal-up" style="transition-delay: 200ms;">
+                    <div class="text-center group">
+                        <div class="position-relative overflow-hidden rounded-circle mb-4 border border-5 border-white shadow-soft image-zoom mx-auto" style="width: 200px; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1510526786522-f38994bbec09?auto=format&fit=crop&q=80&w=400" alt="Chloe" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                        <h5 class="font-serif fw-bold text-dark mb-1">Chloe S.</h5>
+                        <p class="font-sans text-muted text-xs text-uppercase letter-spacing-1 mb-3">Senior Estelle</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="#" class="text-muted text-hover-deep transition-300"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Team 3 -->
+                <div class="col-lg-3 col-md-6 reveal-up" style="transition-delay: 300ms;">
+                    <div class="text-center group">
+                        <div class="position-relative overflow-hidden rounded-circle mb-4 border border-5 border-white shadow-soft image-zoom mx-auto" style="width: 200px; height: 200px;">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Elena" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                        <h5 class="font-serif fw-bold text-dark mb-1">Elena M.</h5>
+                        <p class="font-sans text-muted text-xs text-uppercase letter-spacing-1 mb-3">Color Specialist</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="#" class="text-muted text-hover-deep transition-300"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Testimonials -->
+    <section id="reviews" class="py-5 bg-white border-top border-bottom border-secondary border-opacity-10">
+        <div class="container py-5 my-3">
+            <div class="row justify-content-center text-center reveal-up">
+                <div class="col-lg-8">
+                    <i class="fa-solid fa-quote-right display-4 text-blush mb-4"></i>
+                    
+                    <div id="testimonialCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p class="font-serif fs-4 fst-italic text-dark mb-5 lh-lg">"Lumina is more than a salon; it's a monthly retreat. The atmosphere is incredibly calming, and my hair has never looked healthier. Absolutely unparalleled service."</p>
+                                <h6 class="font-sans text-uppercase text-xs fw-bold letter-spacing-2 text-deep">— Victoria H.</h6>
+                            </div>
+                            <div class="carousel-item">
+                                <p class="font-serif fs-4 fst-italic text-dark mb-5 lh-lg">"The estheticians truly take the time to analyze your skin. Their organic facial completely transformed my complexion before my wedding day."</p>
+                                <h6 class="font-sans text-uppercase text-xs fw-bold letter-spacing-2 text-deep">— Sarah M.</h6>
+                            </div>
+                        </div>
+                        <div class="carousel-indicators position-relative mt-4">
+                            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active bg-deep" style="width: 8px; height: 8px; border-radius: 50%;" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" class="bg-deep" style="width: 8px; height: 8px; border-radius: 50%;" aria-label="Slide 2"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Booking Form -->
+    <section id="booking" class="py-5 bg-cream">
+        <div class="container py-5">
+            <div class="row justify-content-center reveal-up">
+                <div class="col-lg-10 bg-white p-0 shadow-soft d-flex flex-column flex-lg-row">
+                    <!-- Image Side -->
+                    <div class="col-lg-5 d-none d-lg-block">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=600" alt="Spa Booking" class="img-fluid w-100 h-100 object-fit-cover">
+                    </div>
+                    <!-- Form Side -->
+                    <div class="col-lg-7 p-5 p-lg-5">
+                        <h5 class="font-sans text-deep text-uppercase text-xs fw-bold letter-spacing-3 mb-2">Reservations</h5>
+                        <h3 class="font-serif fw-bold text-dark mb-4">Book Your Session</h3>
+                        
+                        <form id="bookingForm" class="needs-validation mt-4" novalidate>
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="name" required placeholder="Full Name">
+                                    <div class="invalid-feedback font-sans text-xs">Please provide your name.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" class="form-control" id="phone" required placeholder="Phone Number">
+                                    <div class="invalid-feedback font-sans text-xs">Please provide a valid number.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-select text-muted" id="service" required>
+                                        <option value="" selected disabled>Select Service</option>
+                                        <option value="haircut">Hair Styling</option>
+                                        <option value="color">Color & Balayage</option>
+                                        <option value="facial">Skin & Facial</option>
+                                        <option value="massage">Body & Relax</option>
+                                    </select>
+                                    <div class="invalid-feedback font-sans text-xs">Please choose a service.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control text-muted" id="date" required>
+                                    <div class="invalid-feedback font-sans text-xs">Please pick a date.</div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-rose rounded-0 px-5 py-3 font-sans text-uppercase fw-medium letter-spacing-1 w-100 transition-300">
+                                Confirm Request
+                            </button>
+                            
+                            <div id="bookingSuccess" class="alert bg-blush border-0 mt-4 d-none text-center font-sans text-sm text-dark rounded-0">
+                                Your booking request has been received. We will call you to confirm the time.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Footer -->
+    <footer id="contact" class="bg-dark text-white pt-5 pb-4 border-top border-rose border-3">
+        <div class="container pt-4">
+            <div class="row gy-5 justify-content-between mb-5">
+                <div class="col-lg-4 text-center text-lg-start">
+                    <a class="font-serif fw-bold fs-3 letter-spacing-2 text-uppercase text-white text-decoration-none mb-4 d-inline-block" href="#">
+                        Lumina<span class="text-rose fs-4">.</span>
+                    </a>
+                    <p class="font-sans fw-light text-white-50 text-sm lh-lg pe-lg-4">Providing an unparalleled sanctuary for beauty, wellness, and serenity. Experience the luxury of bespoke cosmetic and restorative care.</p>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 text-center text-lg-start">
+                    <h6 class="font-sans text-uppercase fw-bold letter-spacing-2 mb-4 text-rose text-xs">Visit Us</h6>
+                    <p class="font-sans text-white-50 text-sm fw-light lh-lg mb-0">1245 Serenity Avenue,<br>Suite 200<br>Los Angeles, CA 90021</p>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 text-center text-lg-start">
+                    <h6 class="font-sans text-uppercase fw-bold letter-spacing-2 mb-4 text-rose text-xs">Connect</h6>
+                    <ul class="list-unstyled text-sm d-flex flex-column gap-2 text-white-50 font-sans fw-light">
+                        <li><a href="mailto:hello@lumina.com" class="text-white-50 text-decoration-none hover-white transition-300">hello@lumina.com</a></li>
+                        <li><a href="tel:5550123456" class="text-white-50 text-decoration-none hover-white transition-300">+1 (555) 012-3456</a></li>
+                    </ul>
+                    <div class="d-flex justify-content-center justify-content-lg-start gap-3 mt-4">
+                        <a href="#" class="text-rose text-decoration-none fs-5"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-rose text-decoration-none fs-5"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="text-rose text-decoration-none fs-5"><i class="fa-brands fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row pt-4 border-top border-white border-opacity-10 mt-2">
+                <div class="col-12 text-center">
+                    <p class="font-sans fw-light text-white-50 text-xs letter-spacing-1 mb-0">&copy; 2026 Lumina Beauty & Spa. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

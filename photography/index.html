@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symmetry Visuals | Photography Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <!-- Lightbox CSS Overlay -->
+    <style>
+        .lightbox { display: none; position: fixed; z-index: 2000; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.95); opacity: 0; transition: opacity 0.3s; }
+        .lightbox.show { display: block; opacity: 1; }
+        .lightbox-close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer; }
+        .lightbox-close:hover, .lightbox-close:focus { color: #bbb; text-decoration: none; cursor: pointer; }
+        .lightbox-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; object-fit: contain; }
+        #caption { margin: auto; display: block; width: 80%; max-width: 700px; text-align: center; color: #ccc; padding: 10px 0; height: 150px; font-family: 'Outfit', sans-serif; letter-spacing: 1px; }
+    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
+
+    <!-- 1. Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white fixed-top py-3 transition-400" id="mainNavbar">
+        <div class="container-fluid px-4 px-lg-5">
+            <a class="navbar-brand font-outfit fw-bold fs-4 text-dark letter-spacing-2 text-uppercase" href="#">
+                Symmetry
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars fs-4 text-dark"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto font-outfit fw-medium text-uppercase text-xs letter-spacing-1">
+                    <li class="nav-item mx-2"><a class="nav-link text-dark active" href="#hero">Home</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link text-dark" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link text-dark" href="#featured">Featured</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link text-dark" href="#about">About</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link text-dark" href="#services">Services</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link text-dark" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="d-none d-lg-flex align-items-center ms-4 text-dark opacity-50">
+                <a href="#" class="text-dark me-3 hover-opacity text-decoration-none"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-dark me-3 hover-opacity text-decoration-none"><i class="fa-brands fa-behance"></i></a>
+                <a href="#" class="text-dark hover-opacity text-decoration-none"><i class="fa-brands fa-vimeo-v"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Fullscreen Hero Gallery -->
+    <section id="hero" class="hero-section position-relative d-flex align-items-center justify-content-center">
+        <!-- Background slider placeholder: Using a fixed background for simplicity, but could be a carousel -->
+        <div class="hero-bg position-absolute w-100 h-100" style="background-image: url('../images/hero.png'); background-size: cover; background-position: center; background-attachment: fixed; z-index: 1;"></div>
+        <div class="position-absolute w-100 h-100 bg-black opacity-25" style="z-index: 2;"></div>
+        
+        <div class="container position-relative z-3 text-center reveal-up">
+            <h1 class="font-outfit text-white display-2 fw-bold text-uppercase letter-spacing-3 mb-3">Capturing Life's<br>Silent Poetry</h1>
+            <p class="font-lora fst-italic text-white fs-4 opacity-75 mb-5 mx-auto" style="max-width: 600px;">Wandering the globe to freeze moments of authentic beauty, emotion, and architectural wonder.</p>
+            <a href="#portfolio" class="btn btn-outline-light rounded-0 px-5 py-3 font-outfit text-xs text-uppercase letter-spacing-2 fw-medium">View Portfolio</a>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="position-absolute bottom-0 start-50 translate-middle-x z-3 mb-4 text-white opacity-50 text-center">
+            <span class="font-outfit text-xs text-uppercase letter-spacing-2 d-block mb-2">Scroll</span>
+            <div class="scroll-indicator mx-auto"></div>
+        </div>
+    </section>
+
+    <!-- 3 & 4. Portfolio Grid with Filters -->
+    <section id="portfolio" class="py-5 bg-white">
+        <div class="container-fluid px-4 px-lg-5 py-5">
+            <div class="row mb-5 align-items-end reveal-up">
+                <div class="col-md-4">
+                    <h2 class="font-outfit fw-bold display-6 letter-spacing-1 text-uppercase mb-3 mb-md-0 d-flex align-items-center">
+                        <span class="bg-black d-inline-block me-3" style="width: 40px; height: 2px;"></span> Work
+                    </h2>
+                </div>
+                <div class="col-md-8 text-md-end">
+                    <!-- Categories Filter -->
+                    <ul class="list-inline mb-0 font-outfit text-xs fw-medium text-uppercase letter-spacing-1" id="portfolio-filter">
+                        <li class="list-inline-item mx-2"><button class="btn btn-link text-dark text-decoration-none p-0 filter-btn active" data-filter="all">All</button></li>
+                        <li class="list-inline-item mx-2"><button class="btn btn-link text-dark opacity-50 text-decoration-none p-0 filter-btn" data-filter="landscape">Landscapes</button></li>
+                        <li class="list-inline-item mx-2"><button class="btn btn-link text-dark opacity-50 text-decoration-none p-0 filter-btn" data-filter="portrait">Portraits</button></li>
+                        <li class="list-inline-item mx-2"><button class="btn btn-link text-dark opacity-50 text-decoration-none p-0 filter-btn" data-filter="urban">Urban</button></li>
+                        <li class="list-inline-item mx-2"><button class="btn btn-link text-dark opacity-50 text-decoration-none p-0 filter-btn" data-filter="wedding">Weddings</button></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Masonry Grid Placeholder (using row columns for structure) -->
+            <div class="row g-4 portfolio-grid reveal-up" style="transition-delay: 100ms;">
+                <!-- Item 1 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="landscape">
+                    <div class="portfolio-wrap position-relative overflow-hidden group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&q=80&w=1200', 'Serene Valley')">
+                        <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&q=80&w=600" class="img-fluid w-100 transition-500 hover-scale" alt="Landscape">
+                        <div class="portfolio-overlay position-absolute w-100 h-100 top-0 start-0 bg-white bg-opacity-90 d-flex flex-column justify-content-center align-items-center opacity-0 transition-300">
+                            <h4 class="font-outfit fw-bold text-uppercase letter-spacing-1 mb-1">Serene Valley</h4>
+                            <span class="font-lora fst-italic text-muted">Landscape</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="portrait">
+                    <div class="portfolio-wrap position-relative overflow-hidden group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=1200', 'Eyes of Depth')">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600" class="img-fluid w-100 transition-500 hover-scale" alt="Portrait">
+                        <div class="portfolio-overlay position-absolute w-100 h-100 top-0 start-0 bg-white bg-opacity-90 d-flex flex-column justify-content-center align-items-center opacity-0 transition-300">
+                            <h4 class="font-outfit fw-bold text-uppercase letter-spacing-1 mb-1">Eyes of Depth</h4>
+                            <span class="font-lora fst-italic text-muted">Portrait</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="urban">
+                    <div class="portfolio-wrap position-relative overflow-hidden group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1200', 'Neon Nights')">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=600" class="img-fluid w-100 transition-500 hover-scale" alt="Urban">
+                        <div class="portfolio-overlay position-absolute w-100 h-100 top-0 start-0 bg-white bg-opacity-90 d-flex flex-column justify-content-center align-items-center opacity-0 transition-300">
+                            <h4 class="font-outfit fw-bold text-uppercase letter-spacing-1 mb-1">Neon Nights</h4>
+                            <span class="font-lora fst-italic text-muted">Urban</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="wedding">
+                    <div class="portfolio-wrap position-relative overflow-hidden group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=1200', 'The Vows')">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=600" class="img-fluid w-100 transition-500 hover-scale" alt="Wedding">
+                        <div class="portfolio-overlay position-absolute w-100 h-100 top-0 start-0 bg-white bg-opacity-90 d-flex flex-column justify-content-center align-items-center opacity-0 transition-300">
+                            <h4 class="font-outfit fw-bold text-uppercase letter-spacing-1 mb-1">The Vows</h4>
+                            <span class="font-lora fst-italic text-muted">Wedding</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="landscape">
+                    <div class="portfolio-wrap position-relative overflow-hidden group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=1200', 'Misty Mountains')">
+                        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=600" class="img-fluid w-100 transition-500 hover-scale" alt="Landscape">
+                        <div class="portfolio-overlay position-absolute w-100 h-100 top-0 start-0 bg-white bg-opacity-90 d-flex flex-column justify-content-center align-items-center opacity-0 transition-300">
+                            <h4 class="font-outfit fw-bold text-uppercase letter-spacing-1 mb-1">Misty Mountains</h4>
+                            <span class="font-lora fst-italic text-muted">Landscape</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="urban">
+                    <div class="portfolio-wrap position-relative overflow-hidden group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1517686520119-21b9baff5a1e?auto=format&fit=crop&q=80&w=1200', 'Concrete Jungle')">
+                        <img src="https://images.unsplash.com/photo-1517686520119-21b9baff5a1e?auto=format&fit=crop&q=80&w=600" class="img-fluid w-100 transition-500 hover-scale" alt="Urban">
+                        <div class="portfolio-overlay position-absolute w-100 h-100 top-0 start-0 bg-white bg-opacity-90 d-flex flex-column justify-content-center align-items-center opacity-0 transition-300">
+                            <h4 class="font-outfit fw-bold text-uppercase letter-spacing-1 mb-1">Concrete Jungle</h4>
+                            <span class="font-lora fst-italic text-muted">Urban</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5 pt-4 reveal-up">
+                <button class="btn btn-dark rounded-0 px-5 py-3 font-outfit text-xs text-uppercase letter-spacing-2 fw-medium btn-hover-reverse">Load More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Featured Work -->
+    <section id="featured" class="py-5 bg-light border-y border-light">
+        <div class="container py-5 text-center">
+            <h2 class="font-outfit fw-bold display-6 letter-spacing-1 text-uppercase mb-5 reveal-up">Project Spotlight</h2>
+            
+            <div class="row align-items-center bg-white shadow-sm reveal-up">
+                <div class="col-lg-7 p-0 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?auto=format&fit=crop&q=80&w=1200" class="img-fluid w-100" alt="Featured Project">
+                </div>
+                <div class="col-lg-5 p-5 text-start">
+                    <span class="font-lora fst-italic text-muted mb-2 d-block">Editorial Series</span>
+                    <h3 class="font-outfit fw-bold text-uppercase letter-spacing-1 mb-4">The Arctic Silence</h3>
+                    <p class="font-outfit font-light text-muted lh-lg mb-4">A two-month expedition documenting the shifting landscapes of the Arctic Circle. This collection explores the vast emptiness and the subtle colors hidden within the ice.</p>
+                    <a href="#" class="text-dark text-decoration-none border-bottom border-dark pb-1 font-outfit text-xs text-uppercase fw-bold letter-spacing-2 hover-opacity">View Case Study</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. About Photographer -->
+    <section id="about" class="py-5 bg-white my-5">
+        <div class="container py-4">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 reveal-left">
+                    <img src="https://images.unsplash.com/photo-1554046920-90dcac0536d1?auto=format&fit=crop&q=80&w=600" class="img-fluid w-100 filter-grayscale transition-500 hover-normal" alt="Photographer">
+                </div>
+                <div class="col-lg-6 offset-lg-1 reveal-right">
+                    <h2 class="font-outfit fw-bold display-6 letter-spacing-1 text-uppercase mb-4 d-flex align-items-center">
+                        <span class="bg-black d-inline-block me-3" style="width: 40px; height: 2px;"></span> About Me
+                    </h2>
+                    <h4 class="font-lora fst-italic text-muted mb-4">"Photography is the story I fail to put into words."</h4>
+                    <p class="font-outfit fw-light lh-lg text-muted mb-4">My name is Julian Vance, an award-winning photographer based in New York. With over a decade of experience traversing the boundaries between commercial assignments and fine art projects, I strive to capture authenticity in every frame.</p>
+                    <p class="font-outfit fw-light lh-lg text-muted mb-5">Whether it's the raw emotion of a portrait or the geometric perfection of modern architecture, my lens seeks symmetry, balance, and compelling narratives.</p>
+                    
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Signature_Placeholder.png" alt="Signature" style="max-width: 150px; opacity: 0.6;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Services -->
+    <section id="services" class="py-5 bg-black text-white">
+        <div class="container py-5">
+            <h2 class="font-outfit fw-bold display-6 letter-spacing-1 text-uppercase mb-5 text-center reveal-up">Services</h2>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 reveal-up" style="transition-delay: 100ms;">
+                    <div class="p-4 border border-white border-opacity-25 h-100 hover-border-white transition-300">
+                        <i class="fa-solid fa-camera mb-4 fs-2"></i>
+                        <h4 class="font-outfit fw-bold text-uppercase letter-spacing-1 fs-5 mb-3">Commercial</h4>
+                        <p class="font-outfit fw-light text-white-50 lh-lg">High-end product photography, brand campaigns, and corporate identity visuals tailored for modern businesses.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal-up" style="transition-delay: 200ms;">
+                    <div class="p-4 border border-white border-opacity-25 h-100 hover-border-white transition-300">
+                        <i class="fa-solid fa-user-group mb-4 fs-2"></i>
+                        <h4 class="font-outfit fw-bold text-uppercase letter-spacing-1 fs-5 mb-3">Portraits</h4>
+                        <p class="font-outfit fw-light text-white-50 lh-lg">Editorial style portraiture for individuals, models, and creative professionals seeking authentic representation.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal-up" style="transition-delay: 300ms;">
+                    <div class="p-4 border border-white border-opacity-25 h-100 hover-border-white transition-300">
+                        <i class="fa-solid fa-gem mb-4 fs-2"></i>
+                        <h4 class="font-outfit fw-bold text-uppercase letter-spacing-1 fs-5 mb-3">Weddings/Events</h4>
+                        <p class="font-outfit fw-light text-white-50 lh-lg">Documentary-style event coverage that focuses on unscripted moments, elegant details, and real emotional connections.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Testimonials -->
+    <section id="testimonials" class="py-5 bg-light my-5">
+        <div class="container py-5">
+            <div class="row justify-content-center reveal-up">
+                <div class="col-lg-8 text-center">
+                    <i class="fa-solid fa-quote-right display-5 text-dark opacity-10 mb-5"></i>
+                    
+                    <div id="clientReviews" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p class="font-lora fs-4 fst-italic text-dark mb-4 lh-lg">"Julian's ability to see light and composition is unparalleled. He transformed our brand's visual identity completely, delivering assets that feel both timeless and contemporary."</p>
+                                <h6 class="font-outfit fw-bold text-uppercase letter-spacing-2 text-xs">— Creative Director, Vogue</h6>
+                            </div>
+                            <div class="carousel-item">
+                                <p class="font-lora fs-4 fst-italic text-dark mb-4 lh-lg">"Hiring Symmetry Visuals for our wedding was the best decision we made. The photos don't just show what things looked like; they capture exactly how it felt."</p>
+                                <h6 class="font-outfit fw-bold text-uppercase letter-spacing-2 text-xs">— Emily & James, Clients</h6>
+                            </div>
+                        </div>
+                        <div class="mt-5 d-flex justify-content-center gap-3">
+                            <button class="btn btn-link text-dark p-0 opacity-50 hover-opacity opacity-100-active" type="button" data-bs-target="#clientReviews" data-bs-slide="prev"><i class="fa-solid fa-arrow-left fs-5"></i></button>
+                            <button class="btn btn-link text-dark p-0 opacity-50 hover-opacity" type="button" data-bs-target="#clientReviews" data-bs-slide="next"><i class="fa-solid fa-arrow-right fs-5"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Contact Form -->
+    <section id="contact" class="py-5 bg-white mb-5">
+        <div class="container py-4">
+            <div class="row g-5">
+                <div class="col-lg-5 reveal-left">
+                    <h2 class="font-outfit fw-bold display-6 letter-spacing-1 text-uppercase mb-4 d-flex align-items-center">
+                        <span class="bg-black d-inline-block me-3" style="width: 40px; height: 2px;"></span> Inquiries
+                    </h2>
+                    <p class="font-outfit fw-light text-muted mb-5 lh-lg">Currently accepting commissions for late 2026. Please provide details about your project, timeline, and budget.</p>
+                    
+                    <div class="mb-4">
+                        <h6 class="font-outfit text-xs text-uppercase fw-bold letter-spacing-2 mb-1">Email</h6>
+                        <a href="mailto:hello@symmetryvisuals.com" class="text-dark text-decoration-none font-lora fst-italic hover-opacity">hello@symmetryvisuals.com</a>
+                    </div>
+                    <div class="mb-4">
+                        <h6 class="font-outfit text-xs text-uppercase fw-bold letter-spacing-2 mb-1">Studio</h6>
+                        <p class="text-dark font-lora fst-italic mb-0">1200 Creative Blvd, Suite 404<br>Brooklyn, NY 11201</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 offset-lg-1 reveal-right">
+                    <form id="contactForm" class="needs-validation" novalidate>
+                        <div class="mb-4 pb-2 border-bottom border-dark">
+                            <input type="text" class="form-control border-0 px-0 font-outfit text-sm bg-transparent minimalist-input" id="name" required placeholder="YOUR NAME">
+                            <div class="invalid-feedback font-outfit text-xs">Name is required.</div>
+                        </div>
+                        <div class="mb-4 pb-2 border-bottom border-dark">
+                            <input type="email" class="form-control border-0 px-0 font-outfit text-sm bg-transparent minimalist-input" id="email" required placeholder="EMAIL ADDRESS">
+                            <div class="invalid-feedback font-outfit text-xs">Valid email is required.</div>
+                        </div>
+                        <div class="mb-4 pb-2 border-bottom border-dark">
+                            <select class="form-select border-0 px-0 font-outfit text-sm bg-transparent minimalist-input text-muted" id="interest" required>
+                                <option value="" selected disabled>PROJECT TYPE</option>
+                                <option value="commercial">Commercial/Brand</option>
+                                <option value="editorial">Editorial/Portrait</option>
+                                <option value="wedding">Wedding/Event</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="invalid-feedback font-outfit text-xs">Please select a project type.</div>
+                        </div>
+                        <div class="mb-5 pb-2 border-bottom border-dark">
+                            <textarea class="form-control border-0 px-0 font-outfit text-sm bg-transparent minimalist-input" id="message" rows="3" required placeholder="MESSAGE DETAILS"></textarea>
+                            <div class="invalid-feedback font-outfit text-xs">Message cannot be empty.</div>
+                        </div>
+                        <button type="submit" class="btn btn-dark rounded-0 px-5 py-3 font-outfit text-xs text-uppercase letter-spacing-2 fw-medium btn-hover-reverse w-100">Send Inquiry</button>
+                        
+                        <div id="contactSuccess" class="alert alert-dark rounded-0 mt-4 d-none text-center font-outfit text-sm">
+                            Thank you. We will be in touch shortly.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="imageLightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightboxImage">
+        <div id="caption"></div>
+    </div>
+
+    <!-- 10. Footer -->
+    <footer class="bg-black text-white pt-5 pb-4">
+        <div class="container pt-4 border-top border-white border-opacity-25 pb-3">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+                    <a class="font-outfit fw-bold fs-4 text-white letter-spacing-2 text-uppercase text-decoration-none" href="#">Symmetry</a>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white-50 mx-2 hover-opacity text-decoration-none"><i class="fa-brands fa-instagram fs-5"></i></a>
+                    <a href="#" class="text-white-50 mx-2 hover-opacity text-decoration-none"><i class="fa-brands fa-behance fs-5"></i></a>
+                    <a href="#" class="text-white-50 mx-2 hover-opacity text-decoration-none"><i class="fa-brands fa-pinterest fs-5"></i></a>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p class="font-outfit fw-light text-white-50 text-xs letter-spacing-1 mb-0">&copy; 2026 Symmetry Visuals. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

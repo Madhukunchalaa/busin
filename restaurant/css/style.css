@@ -1,0 +1,176 @@
+/* Variables */
+:root {
+    --bg-dark: #121212;
+    --bg-darker: #0a0a0a;
+    --bg-black: #000000;
+    --gold: #d4af37;
+    --gold-hover: #e5c355;
+    --text-light: #ffffff;
+    --text-muted: rgba(255,255,255,0.6);
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+    overflow-x: hidden;
+}
+
+.font-serif {
+    font-family: 'Cinzel', serif;
+}
+.font-sans {
+    font-family: 'Lato', sans-serif;
+}
+
+.text-gold { color: var(--gold) !important; }
+.bg-gold { background-color: var(--gold) !important; }
+.text-gold-hover:hover { color: var(--gold) !important; }
+.link-hover-gold:hover { color: var(--text-light) !important; }
+.border-gold { border-color: var(--gold) !important; }
+
+.bg-darker { background-color: var(--bg-darker) !important; }
+.bg-black { background-color: var(--bg-black) !important; }
+
+.btn-gold {
+    background-color: var(--gold);
+    color: #000;
+    border: 1px solid var(--gold);
+    transition: all 0.3s;
+}
+.btn-gold:hover {
+    background-color: transparent;
+    color: var(--gold);
+}
+
+.btn-outline-gold {
+    background-color: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    transition: all 0.3s;
+}
+.btn-outline-gold:hover {
+    background-color: var(--gold);
+    color: #000;
+}
+
+/* Typography Helpers */
+.letter-spacing-1 { letter-spacing: 1px; }
+.letter-spacing-2 { letter-spacing: 2px; }
+.letter-spacing-3 { letter-spacing: 4px; }
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.line-height-1 { line-height: 1.1; }
+.max-w-600 { max-width: 600px; }
+.max-w-400 { max-width: 400px; }
+
+.divider {
+    height: 2px;
+    width: 50px;
+}
+
+.border-bottom-dotted {
+    border-bottom: 1px dotted rgba(255,255,255,0.3);
+}
+
+/* Navbar */
+.navbar {
+    background-color: transparent;
+}
+.navbar.scrolled {
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 0.5rem 0 !important;
+}
+.navbar.scrolled .container.border-bottom {
+    border-color: transparent !important;
+    padding-bottom: 0 !important;
+}
+.nav-link {
+    position: relative;
+    opacity: 0.8;
+}
+.nav-link:hover, .nav-link.active {
+    opacity: 1;
+    color: var(--gold) !important;
+}
+
+/* Hero */
+.hero-section {
+    min-height: 100vh;
+    background-image: url('../images/hero.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.hero-overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(10,10,10,1) 100%);
+}
+
+/* Utilities / Effects */
+.filter-sepia {
+    filter: sepia(30%) grayscale(50%) contrast(110%);
+}
+.hover-normal:hover {
+    filter: sepia(0%) grayscale(0%) contrast(100%);
+}
+.filter-grayscale-hover {
+    filter: grayscale(80%);
+}
+.filter-grayscale-hover:hover {
+    filter: grayscale(0%);
+}
+
+.hover-zoom {
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.group:hover .hover-zoom {
+    transform: scale(1.08);
+}
+.transition-300 { transition: all 0.3s ease; }
+.transition-400 { transition: all 0.4s ease; }
+.transition-500 { transition: all 0.5s ease; }
+.cursor-pointer { cursor: pointer; }
+.min-vh-50 { min-height: 50vh; }
+.backdrop-blur { backdrop-filter: blur(8px); }
+
+/* Forms */
+.form-control-elegant {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-radius: 0;
+}
+.form-control-elegant:focus {
+    background-color: transparent;
+    color: white;
+    box-shadow: none;
+    border-color: var(--gold);
+}
+.form-control-elegant::placeholder {
+    color: rgba(255,255,255,0.2);
+    font-style: italic;
+}
+/* Ensure dark mode date picker icons etc don't look bad */
+.dark-date-picker::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.5;
+}
+
+/* Animations */
+.reveal-up, .reveal-left, .reveal-right {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal-up { transform: translateY(40px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+
+.reveal-up.active, .reveal-left.active, .reveal-right.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0);
+}

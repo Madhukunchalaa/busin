@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarePlus | Next-Gen Medical Center</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" class="bg-white">
+
+    <!-- 1. Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top py-3 shadow-soft" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand fw-800 fs-4 d-flex align-items-center" href="#">
+                <i class="fa-solid fa-heart-pulse text-teal fs-3 me-2"></i> Care<span class="text-teal">Plus</span>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fa-solid fa-bars fs-2"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-600 fs-6">
+                    <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Specialities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#doctors">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center mt-3 mt-lg-0">
+                    <div class="me-4 d-none d-xl-flex align-items-center">
+                        <i class="fa-solid fa-phone-volume text-teal fs-4 me-2"></i>
+                        <div>
+                            <span class="d-block text-muted" style="font-size: 0.75rem; line-height: 1;">Emergency Line</span>
+                            <span class="fw-700 fs-6">1-800-456-7890</span>
+                        </div>
+                    </div>
+                    <a href="#appointment" class="btn btn-teal rounded-pill px-4 py-2 fw-600 shadow-sm transition-300">
+                        Book Appointment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section -->
+    <section id="hero" class="hero-section min-vh-100 d-flex align-items-center pt-5">
+        <div class="hero-shape"></div>
+        <div class="container pt-5 mt-4 z-2">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 reveal-up">
+                    <div class="d-inline-flex align-items-center bg-teal-light text-teal-dark rounded-pill px-3 py-1 fw-600 mb-4" style="font-size: 0.85rem;">
+                        <i class="fa-solid fa-shield-virus me-2"></i> Top Rated Hospital 2026
+                    </div>
+                    <h1 class="display-3 fw-800 text-main mb-4 lh-sm">
+                        Modern Healthcare. <br>Exceptional <span class="text-teal">Care.</span>
+                    </h1>
+                    <p class="fs-5 text-muted mb-5 pe-lg-5 fw-400 lh-lg">
+                        Experience next-generation medical excellence with our highly specialized doctors, advanced technology, and compassionate approach to your health.
+                    </p>
+                    <div class="d-flex flex-column flex-sm-row gap-3">
+                        <a href="#appointment" class="btn btn-teal btn-lg rounded-pill px-5 fw-600">Find a Doctor</a>
+                        <a href="#services" class="btn btn-outline-teal btn-lg rounded-pill px-5 fw-600 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-play bg-teal-light text-teal rounded-circle d-flex align-items-center justify-content-center me-2" style="width:24px; height:24px; font-size:10px;"></i> How We Work
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center mt-5 pt-3">
+                        <div class="d-flex me-3">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100" class="rounded-circle border border-2 border-white" style="width: 45px; height: 45px; margin-right: -15px;" alt="Patient">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=100" class="rounded-circle border border-2 border-white z-1" style="width: 45px; height: 45px; margin-right: -15px;" alt="Patient">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100" class="rounded-circle border border-2 border-white z-2" style="width: 45px; height: 45px;" alt="Patient">
+                        </div>
+                        <div>
+                            <div class="text-warning fs-6 mb-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="fw-700 fs-6 text-main">4.9/5</span> <span class="text-muted fs-6">from 2,500+ Reviews</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 position-relative reveal-up" style="transition-delay: 200ms;">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800" class="img-fluid rounded-4 shadow-hover" alt="Medical Professionals">
+                    
+                    <div class="position-absolute bg-white p-3 rounded-4 shadow-hover d-flex align-items-center" style="bottom: 30px; left: -30px;">
+                        <div class="bg-teal-light rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                            <i class="fa-solid fa-user-doctor text-teal fs-4"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-800 text-main mb-0">200+</h4>
+                            <span class="text-muted fw-500" style="font-size: 0.85rem;">Expert Specialists</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. About Us / Stats -->
+    <section id="about" class="py-5 my-5 bg-white">
+        <div class="container pt-4 pt-lg-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 reveal-up">
+                    <h6 class="text-teal fw-700 text-uppercase mb-3" style="letter-spacing: 1px;">About CarePlus</h6>
+                    <h2 class="display-5 fw-800 text-main mb-4">Dedicated to Your Health & Well-being</h2>
+                    <p class="text-muted fs-5 lh-lg mb-4">At CarePlus, we combine state-of-the-art medical technology with highly experienced healthcare professionals. We are committed to providing personalized, comprehensive care for you and your family.</p>
+                    <ul class="list-unstyled mb-5">
+                        <li class="d-flex align-items-center mb-3 text-main fw-600">
+                            <i class="fa-solid fa-circle-check text-teal fs-5 me-3"></i> 24/7 Emergency Services available
+                        </li>
+                        <li class="d-flex align-items-center mb-3 text-main fw-600">
+                            <i class="fa-solid fa-circle-check text-teal fs-5 me-3"></i> Advanced Robotic Surgery Center
+                        </li>
+                        <li class="d-flex align-items-center text-main fw-600">
+                            <i class="fa-solid fa-circle-check text-teal fs-5 me-3"></i> Top Tier Certified Professionals
+                        </li>
+                    </ul>
+                    <a href="#services" class="btn btn-outline-teal rounded-pill px-4 py-2 fw-600">Learn More About Us</a>
+                </div>
+                <!-- Stats Grid -->
+                <div class="col-lg-6 offset-lg-1 reveal-up" style="transition-delay: 200ms;">
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <div class="bg-light-tint p-4 rounded-4 shadow-sm text-center border border-teal border-opacity-10 h-100 transition-300 hover-lift">
+                                <i class="fa-solid fa-hospital text-teal fs-1 mb-3"></i>
+                                <h3 class="display-6 fw-800 text-main mb-1">15+</h3>
+                                <span class="text-muted fw-600">Years of Excellence</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mt-sm-5">
+                            <div class="bg-white p-4 rounded-4 shadow-sm text-center border border-light h-100 transition-300 hover-lift shadow-hover">
+                                <i class="fa-solid fa-bed-pulse text-teal-dark fs-1 mb-3"></i>
+                                <h3 class="display-6 fw-800 text-main mb-1">350+</h3>
+                                <span class="text-muted fw-600">Hospital Rooms</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mt-sm-n5" style="margin-top: -3rem;">
+                            <div class="bg-white p-4 rounded-4 shadow-sm text-center border border-light h-100 transition-300 hover-lift shadow-hover">
+                                <i class="fa-solid fa-award text-warning fs-1 mb-3"></i>
+                                <h3 class="display-6 fw-800 text-main mb-1">50+</h3>
+                                <span class="text-muted fw-600">Global Awards</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="bg-light-tint p-4 rounded-4 shadow-sm text-center border border-teal border-opacity-10 h-100 transition-300 hover-lift">
+                                <i class="fa-solid fa-face-smile text-teal fs-1 mb-3"></i>
+                                <h3 class="display-6 fw-800 text-main mb-1">20k+</h3>
+                                <span class="text-muted fw-600">Happy Patients</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Services / Departments -->
+    <section id="services" class="py-5 my-5 bg-light-tint">
+        <div class="container py-5">
+            <div class="text-center mb-5 reveal-up">
+                <h6 class="text-teal fw-700 text-uppercase mb-2" style="letter-spacing: 1px;">Our Departments</h6>
+                <h2 class="display-5 fw-800 text-main">Excellence in Medical Services</h2>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Cardiology -->
+                <div class="col-xl-3 col-md-6 reveal-up" style="transition-delay: 100ms;">
+                    <div class="service-card bg-white p-4 h-100 shadow-sm d-flex flex-column text-center text-md-start">
+                        <div class="icon-wrapper mb-4 mx-auto mx-md-0">
+                            <i class="fa-solid fa-heart-crack fs-3"></i>
+                        </div>
+                        <h4 class="fw-700 text-main mb-3">Cardiology</h4>
+                        <p class="text-muted fw-400 mb-4 flex-grow-1" style="font-size: 0.95rem;">Advanced heart care, diagnostics, surgeries, and rehabilitation programs.</p>
+                        <a href="#" class="text-teal fw-600 text-decoration-none mt-auto">Read More <i class="fa-solid fa-arrow-right ms-1 fs-xs"></i></a>
+                    </div>
+                </div>
+                <!-- Neurology -->
+                <div class="col-xl-3 col-md-6 reveal-up" style="transition-delay: 200ms;">
+                    <div class="service-card bg-white p-4 h-100 shadow-sm d-flex flex-column text-center text-md-start">
+                        <div class="icon-wrapper mb-4 mx-auto mx-md-0">
+                            <i class="fa-solid fa-brain fs-3"></i>
+                        </div>
+                        <h4 class="fw-700 text-main mb-3">Neurology</h4>
+                        <p class="text-muted fw-400 mb-4 flex-grow-1" style="font-size: 0.95rem;">Comprehensive care for brain, spine, and nervous system disorders.</p>
+                        <a href="#" class="text-teal fw-600 text-decoration-none mt-auto">Read More <i class="fa-solid fa-arrow-right ms-1 fs-xs"></i></a>
+                    </div>
+                </div>
+                <!-- Orthopedics -->
+                <div class="col-xl-3 col-md-6 reveal-up" style="transition-delay: 300ms;">
+                    <div class="service-card bg-white p-4 h-100 shadow-sm d-flex flex-column text-center text-md-start">
+                        <div class="icon-wrapper mb-4 mx-auto mx-md-0">
+                            <i class="fa-solid fa-bone fs-3"></i>
+                        </div>
+                        <h4 class="fw-700 text-main mb-3">Orthopedics</h4>
+                        <p class="text-muted fw-400 mb-4 flex-grow-1" style="font-size: 0.95rem;">Expert treatments for bones, joints, ligaments, tendons, and muscles.</p>
+                        <a href="#" class="text-teal fw-600 text-decoration-none mt-auto">Read More <i class="fa-solid fa-arrow-right ms-1 fs-xs"></i></a>
+                    </div>
+                </div>
+                <!-- Pediatrics -->
+                <div class="col-xl-3 col-md-6 reveal-up" style="transition-delay: 400ms;">
+                    <div class="service-card bg-white p-4 h-100 shadow-sm d-flex flex-column text-center text-md-start">
+                        <div class="icon-wrapper mb-4 mx-auto mx-md-0">
+                            <i class="fa-solid fa-baby fs-3"></i>
+                        </div>
+                        <h4 class="fw-700 text-main mb-3">Pediatrics</h4>
+                        <p class="text-muted fw-400 mb-4 flex-grow-1" style="font-size: 0.95rem;">Compassionate medical care tailored specifically for infants and children.</p>
+                        <a href="#" class="text-teal fw-600 text-decoration-none mt-auto">Read More <i class="fa-solid fa-arrow-right ms-1 fs-xs"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5 reveal-up" style="transition-delay: 500ms;">
+                <a href="#" class="btn btn-teal rounded-pill px-4 py-2 fw-600">View All Departments</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Meet the Doctors -->
+    <section id="doctors" class="py-5 my-5 bg-white">
+        <div class="container pt-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 reveal-up">
+                <div>
+                    <h6 class="text-teal fw-700 text-uppercase mb-2" style="letter-spacing: 1px;">Our Specialists</h6>
+                    <h2 class="display-6 fw-800 text-main mb-0">Meet Our Dedicated Top Doctors</h2>
+                </div>
+                <a href="#" class="btn btn-outline-teal rounded-pill px-4 py-2 fw-600 mt-4 mt-md-0">See All Doctors</a>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Dr 1 -->
+                <div class="col-lg-4 col-md-6 reveal-up" style="transition-delay: 100ms;">
+                    <div class="doctor-card bg-white shadow-soft group">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800" class="w-100" alt="Doctor">
+                            <!-- Social overlay could go here -->
+                        </div>
+                        <div class="p-4 text-center">
+                            <h4 class="fw-800 text-main mb-1">Dr. Robert Chen</h4>
+                            <span class="text-teal fw-600 d-block mb-3">Chief of Cardiology</span>
+                            <p class="text-muted mb-0" style="font-size: 0.9rem;">20+ years of experience in complex coronary interventions.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dr 2 -->
+                <div class="col-lg-4 col-md-6 reveal-up" style="transition-delay: 200ms;">
+                    <div class="doctor-card bg-white shadow-soft group">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1594824432258-45fa8fa25be6?auto=format&fit=crop&q=80&w=800" class="w-100" alt="Doctor">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h4 class="fw-800 text-main mb-1">Dr. Sarah Jenkins</h4>
+                            <span class="text-teal fw-600 d-block mb-3">Lead Neurologist</span>
+                            <p class="text-muted mb-0" style="font-size: 0.9rem;">Specializing in advanced cerebrovascular disease treatments.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dr 3 -->
+                <div class="col-lg-4 col-md-6 mx-auto reveal-up" style="transition-delay: 300ms;">
+                    <div class="doctor-card bg-white shadow-soft group">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800" class="w-100" alt="Doctor">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h4 class="fw-800 text-main mb-1">Dr. Michael Davis</h4>
+                            <span class="text-teal fw-600 d-block mb-3">Orthopedic Surgeon</span>
+                            <p class="text-muted mb-0" style="font-size: 0.9rem;">Expert in minimally invasive joint replacement surgeries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Appointment Booking -->
+    <section id="appointment" class="py-5 my-5 bg-main position-relative">
+        <div class="container py-5 reveal-up">
+            <div class="row bg-teal rounded-4 overflow-hidden shadow-hover align-items-center">
+                <!-- Content Side -->
+                <div class="col-lg-5 p-5 p-lg-5 text-white bg-teal-dark position-relative h-100">
+                    <h2 class="display-6 fw-800 mb-4 z-2 position-relative">Book An Appointment Online</h2>
+                    <p class="fw-400 text-white-50 lh-lg mb-5 z-2 position-relative">Skip the queue and easily schedule your visit with our specialists. Our team will verify your preferred time and contact you shortly.</p>
+                    
+                    <div class="d-flex align-items-start mb-4 z-2 position-relative">
+                        <div class="bg-white bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-4 mt-1" style="width: 45px; height: 45px; flex-shrink:0;">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-700 mb-1">Call Us 24/7</h5>
+                            <span class="fw-400 text-white-50">1-800-456-7890</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start z-2 position-relative">
+                        <div class="bg-white bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-4 mt-1" style="width: 45px; height: 45px; flex-shrink:0;">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-700 mb-1">Location</h5>
+                            <span class="fw-400 text-white-50">123 Health Ave, Medical District<br>New York, NY 10001</span>
+                        </div>
+                    </div>
+                    
+                    <!-- decorative -->
+                    <div class="position-absolute end-0 bottom-0 opacity-10" style="transform: translate(30%, 30%);">
+                        <i class="fa-solid fa-truck-medical text-white" style="font-size: 250px;"></i>
+                    </div>
+                </div>
+                
+                <!-- Form Side -->
+                <div class="col-lg-7 p-5 bg-white">
+                    <form id="appointmentForm" class="needs-validation" novalidate>
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-600 text-main">Patient Name</label>
+                                <input type="text" class="form-control" required placeholder="John Doe">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-600 text-main">Phone Number</label>
+                                <input type="tel" class="form-control" required placeholder="+1 234 567 8900">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-600 text-main">Department</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Select Department</option>
+                                    <option value="Cardiology">Cardiology</option>
+                                    <option value="Neurology">Neurology</option>
+                                    <option value="Orthopedics">Orthopedics</option>
+                                    <option value="Pediatrics">Pediatrics</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-600 text-main">Preferred Doctor</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Any Doctor</option>
+                                    <option value="Chen">Dr. Robert Chen</option>
+                                    <option value="Jenkins">Dr. Sarah Jenkins</option>
+                                    <option value="Davis">Dr. Michael Davis</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-600 text-main">Preferred Date</label>
+                                <input type="date" class="form-control text-muted" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-600 text-main">Preferred Time</label>
+                                <input type="time" class="form-control text-muted" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-teal w-100 rounded-pill py-3 fw-700 fs-5 mt-2">
+                            Confirm Appointment
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Footer -->
+    <footer id="contact" class="bg-main text-white pt-5 pb-3 bg-dark">
+        <div class="container pt-4">
+            <div class="row g-5 justify-content-between mb-5">
+                <div class="col-lg-4">
+                    <a class="fw-800 fs-3 d-flex align-items-center text-white text-decoration-none mb-4" href="#">
+                        <i class="fa-solid fa-heart-pulse text-teal fs-2 me-2"></i> Care<span class="text-teal">Plus</span>
+                    </a>
+                    <p class="text-white-50 fw-400 lh-lg pe-md-4 mb-4">CarePlus provides you with the most exceptional medical care and modern facilities, empowering your journey to optimal health.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-opacity-25 text-white-50" style="width: 40px; height: 40px;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-opacity-25 text-white-50" style="width: 40px; height: 40px;"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-opacity-25 text-white-50" style="width: 40px; height: 40px;"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="fw-700 text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-3 fw-500">
+                        <li><a href="#about" class="text-white-50 text-decoration-none transition-300 hover-white">About Us</a></li>
+                        <li><a href="#services" class="text-white-50 text-decoration-none transition-300 hover-white">Departments</a></li>
+                        <li><a href="#doctors" class="text-white-50 text-decoration-none transition-300 hover-white">Our Doctors</a></li>
+                        <li><a href="#appointment" class="text-white-50 text-decoration-none transition-300 hover-white">Make Appointment</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-8 text-white-50 fw-500">
+                    <h5 class="fw-700 text-white mb-4">Contact Info</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li class="d-flex align-items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-teal"></i>
+                            <span>123 Health Ave, Medical District<br>New York, NY 10001</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-envelope text-teal"></i>
+                            <a href="mailto:info@careplus.com" class="text-white-50 text-decoration-none hover-white">info@careplus.com</a>
+                        </li>
+                        <li class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-phone text-teal"></i>
+                            <span class="fw-700 text-white">1-800-456-7890</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="row pt-4 border-top border-white border-opacity-10 mt-2">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-white-50 text-sm mb-0">&copy; 2026 CarePlus Medical Center. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0 fw-500 text-sm">
+                    <a href="#" class="text-white-50 text-decoration-none transition-300 me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50 text-decoration-none transition-300">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+/* Variables */
+:root {
+    --bg-cream: #fdfaf6;
+    --bg-white: #ffffff;
+    --text-dark: #3a3230;
+    --text-muted: #857d7b;
+    --brand-blush: #f4dbd8;
+    --brand-rose: #d6aba5;
+    --brand-deep: #a06b6b;
+    --shadow-soft: 0 10px 40px rgba(160, 107, 107, 0.08);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-cream);
+    overflow-x: hidden;
+}
+
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+.font-sans {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Colors Utilities */
+.text-rose { color: var(--brand-rose) !important; }
+.text-deep { color: var(--brand-deep) !important; }
+.bg-cream { background-color: var(--bg-cream) !important; }
+.bg-blush { background-color: var(--brand-blush) !important; color: var(--text-dark); }
+.bg-rose { background-color: var(--brand-rose) !important; color: white; }
+.bg-deep { background-color: var(--brand-deep) !important; color: white; }
+
+.text-hover-deep:hover { color: var(--brand-deep) !important; }
+
+/* Buttons */
+.btn-rose {
+    background-color: var(--brand-rose);
+    color: white;
+    border: 1px solid var(--brand-rose);
+}
+.btn-rose:hover {
+    background-color: var(--brand-deep);
+    border-color: var(--brand-deep);
+    color: white;
+}
+.btn-outline-deep {
+    background-color: transparent;
+    border: 1px solid var(--brand-deep);
+    color: var(--brand-deep);
+}
+.btn-outline-deep:hover {
+    background-color: var(--brand-deep);
+    color: white;
+}
+
+.letter-spacing-1 { letter-spacing: 1px; }
+.letter-spacing-2 { letter-spacing: 2px; }
+.letter-spacing-3 { letter-spacing: 3px; }
+.fs-7 { font-size: 0.85rem; }
+.line-height-1 { line-height: 1.2; }
+.shadow-soft { box-shadow: var(--shadow-soft) !important; }
+
+/* Navbar */
+.navbar {
+    background-color: transparent;
+    transition: all 0.4s ease;
+    border-bottom: 1px solid transparent;
+}
+.navbar.scrolled {
+    background-color: rgba(253, 250, 246, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(160, 107, 107, 0.1);
+    padding: 1rem 0 !important;
+}
+
+.navbar-brand {
+    color: var(--text-dark) !important;
+}
+
+.nav-link {
+    color: var(--text-dark) !important;
+    position: relative;
+    margin: 0 5px;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--brand-deep);
+    transition: width 0.3s;
+}
+.nav-link:hover::after, .nav-link.active::after {
+    width: 60%;
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--brand-deep) !important;
+}
+
+/* Make initial navbar text lighter if overlaying dark image, but for spa we use light hero */
+@media (min-width: 992px) {
+    .navbar:not(.scrolled) .nav-link,
+    .navbar:not(.scrolled) .navbar-brand {
+        color: var(--text-dark) !important;
+    }
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url('https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&q=80&w=1200'); /* High-res spa interior */
+    background-size: cover;
+    background-position: center 30%;
+    background-attachment: fixed;
+}
+.hero-overlay {
+    background: linear-gradient(90deg, rgba(253,250,246,0.95) 0%, rgba(253,250,246,0.7) 100%);
+}
+
+/* Service Divider */
+.service-divider {
+    width: 50px;
+    height: 1px;
+    background-color: var(--brand-rose);
+    margin: 15px auto;
+}
+
+/* Cards & Hover Effects */
+.card-hover {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-soft) !important;
+}
+.image-zoom {
+    overflow: hidden;
+}
+.image-zoom img {
+    transition: transform 0.8s ease;
+}
+.group:hover .image-zoom img {
+    transform: scale(1.05);
+}
+
+.transition-300 { transition: all 0.3s ease; }
+.transition-500 { transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+/* Custom Inputs */
+.form-control, .form-select {
+    border: 1px solid rgba(160,107,107,0.2);
+    border-radius: 0;
+    padding: 0.8rem 1rem;
+    background-color: transparent;
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--brand-rose);
+    box-shadow: none;
+    background-color: transparent;
+}
+.form-control::placeholder {
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* Animations */
+.reveal-up, .reveal-left, .reveal-right {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal-up { transform: translateY(40px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+
+.reveal-up.active, .reveal-left.active, .reveal-right.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0);
+}
