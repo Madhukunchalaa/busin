@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIZSITE BOUTIQUE | Premium Clothing & Modern Classics</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- PROMO BANNER -->
+    <div class="promo-banner">
+        FREE EXPRESS GLOBAL SHIPPING ON ALL ORDERS OVER $500
+    </div>
+
+    <!-- 1. NAVIGATION -->
+    <nav id="mainNav">
+        <div class="nav-left">
+            <ul class="nav-links">
+                <li><a href="#collections" data-category="men's clothing">Maison Men</a></li>
+                <li><a href="#collections" data-category="women's clothing">Luxe Women</a></li>
+            </ul>
+        </div>
+        <a href="#" class="nav-logo">BIZSITE<span>BOUTIQUE</span></a>
+        <div class="nav-actions">
+            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="#"><i class="fa-regular fa-heart"></i></a>
+            <a href="#" class="bag-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="bag-count">0</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Overlay -->
+        <div class="mobile-overlay" id="mobileOverlay">
+            <ul class="mobile-nav-links">
+                <li><a href="#collections" data-category="men's clothing">Maison Men</a></li>
+                <li><a href="#collections" data-category="women's clothing">Luxe Women</a></li>
+                <li><a href="#heritage">Our Heritage</a></li>
+                <li><a href="#journal">The Journal</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 2. HERO SECTION -->
+        <section id="home" class="hero-section container-luxe">
+            <div class="hero-content">
+                <span class="hero-subtitle">The Spring/Summer Editorial — 2026</span>
+                <h1 class="hero-title">Refining the <br><span class="text-gold">Modern Classic.</span></h1>
+                <p class="hero-sub mb-5" style="max-width: 450px;">A world-class curation of timeless essentials, engineered for the architectural wardrobe of the modern individual.</p>
+                <div class="d-flex gap-4">
+                    <a href="#selection" class="btn-luxe">Shop The Collection</a>
+                    <a href="#heritage" class="btn-luxe" style="background:transparent; color:#000; border:1px solid #000; padding:1.2rem 2.8rem">Our Heritage</a>
+                </div>
+            </div>
+            <div class="hero-visual" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1920&q=80'), url('https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80'); background-color: #f1e9df;"></div>
+        </section>
+
+        <!-- 3. COLLECTION GRID -->
+        <section id="collections" class="section-padding">
+            <div class="container-luxe">
+                <div class="cat-grid">
+                    <div class="cat-item" data-category="men's clothing">
+                        <img src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" onerror="this.src='https://images.unsplash.com/photo-1594932224456-748d59458933?auto=format&fit=crop&w=800&q=80'" alt="Maison Men" class="cat-img">
+                        <div class="cat-overlay">
+                            <span class="section-tag mb-2" style="color:#fff;">ATELIER</span>
+                            <h3 class="display-5 font-serif mb-4">Maison Men</h3>
+                            <span class="btn-luxe" style="background:#fff; color:#000;">View Collection</span>
+                        </div>
+                    </div>
+                    <div class="cat-item" data-category="women's clothing">
+                        <img src="https://images.pexels.com/photos/2036646/pexels-photo-2036646.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" onerror="this.src='https://images.unsplash.com/photo-1485230895905-ec17bd36b58d?auto=format&fit=crop&w=800&q=80'" alt="Luxe Women" class="cat-img">
+                        <div class="cat-overlay">
+                            <span class="section-tag mb-2" style="color:#fff;">LE MAISON</span>
+                            <h3 class="display-5 font-serif mb-4">Luxe Women</h3>
+                            <span class="btn-luxe" style="background:#fff; color:#000;">View Collection</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. DYNAMIC SELECTION (FAKE STORE API) -->
+        <section id="selection" class="section-padding" style="background:#fff;">
+            <div class="container-luxe">
+                <div class="section-head">
+                    <div class="filter-bar mb-5">
+                        <button class="filter-btn active" data-filter="men's clothing">Maison Men</button>
+                        <button class="filter-btn" data-filter="women's clothing">Luxe Women</button>
+                    </div>
+                    <h2 class="section-title">The Seasonal Curation</h2>
+                    <p class="text-muted mt-3 h5" style="font-weight:300;">World-class essentials, ethically sourced and architecturally designed.</p>
+                </div>
+                <div id="productGrid" class="product-grid">
+                    <!-- Products dynamically loaded from Fake Store API -->
+                    <div class="text-center w-100 p-5">
+                        <p class="h4 font-serif italic text-muted">Curating the boutique...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. HERITAGE SEGMENT -->
+        <section id="heritage" class="section-padding container-luxe">
+            <div class="heritage-box">
+                <img src="https://images.pexels.com/photos/1154861/pexels-photo-1154861.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80" alt="Atelier Craftsmanship" class="heritage-img">
+                <div class="heritage-text">
+                    <span class="section-tag">CRAFTSMANSHIP</span>
+                    <h2 class="display-4 font-serif mb-4">A Vision of <br>Bespoke Quality</h2>
+                    <p class="text-muted mb-5">Built on the pillars of world-class quality and architectural design, Bizsite Boutique represents a commitment to the modern lifestyle. Every piece in our collection is selected with the intention of lasting a lifetime.</p>
+                    <a href="#" class="btn-luxe">Discover The Atelier</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CURATION JOURNAL -->
+        <section id="journal" class="section-padding" style="background:#fff;">
+            <div class="container-luxe">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h2 class="display-3 font-serif">Join the <br><span class="text-gold">Maison Collective</span></h2>
+                        <p class="text-muted mt-4 h5">Exclusive access to new collection launches, styling editorials, and the global heritage circle.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="p-5 border" style="background:var(--clr-cream);">
+                            <form id="newsletterForm">
+                                <h4 class="font-serif mb-4">Bespoke Updates</h4>
+                                <input type="email" placeholder="Email Address" class="form-control mb-4 rounded-0 p-3" required>
+                                <button type="submit" class="btn-luxe w-100 border-0">Join Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ELITE VOICES -->
+        <section id="voices" class="section-padding">
+            <div class="container-luxe text-center">
+                <div id="testimonialCarousel" class="carousel-luxe">
+                    <p class="display-5 font-serif italic mb-5">"In an era of fast fashion, Bizsite Boutique stands as an architectural pillar of timeless quality and world-class style."</p>
+                    <h5 class="text-gold font-sans text-uppercase letter-spacing-2">Helena St. Claire</h5>
+                    <p class="text-muted small">Editor-in-Chief, Luxe Mode</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. ATELIER FOOTER -->
+        <footer>
+            <div class="footer-top">
+                <div>
+                    <h3 class="nav-logo mb-4" style="font-size:1.4rem;">BIZSITE<span>BOUTIQUE</span></h3>
+                    <p class="text-muted" style="max-width: 400px;">A world-class digital atelier for premium clothing. Designed in Paris, Distributed Globally.</p>
+                </div>
+                <div>
+                    <h5 class="font-serif mb-4">The Maison</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Our Story</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Sustainability</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Stores</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-serif mb-4">Assistance</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Shipping & Returns</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Sizing Guide</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Contact Atelier</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom border-top pt-5 text-center">
+                <p class="text-muted small">&copy; 2026 BIZSITE BOUTIQUE ASSEMBLY. ALL RIGHTS RESERVED.</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-box">Item added to your bag</div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
