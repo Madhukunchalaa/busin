@@ -272,22 +272,61 @@ footer a { color: var(--clr-muted); text-decoration: none; transition: 0.3s; }
 footer a:hover { color: var(--clr-gold); }
 
 @media (max-width: 991px) {
-    nav { padding: 20px 5%; }
-    .nav-links { display: none; }
-    .menu-toggle { display: flex; }
+    nav { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; }
+    .nav-left { display: none; }
+    .nav-logo { 
+        position: absolute; left: 50%; transform: translateX(-50%);
+        font-size: 1.1rem; letter-spacing: 0.1rem;
+    }
+    .menu-toggle { display: flex; order: -1; }
+    .nav-actions a:not(.bag-icon) { display: none; }
+    .nav-actions { margin-left: auto; }
     
-    .hero-section { height: auto; padding: 120px 5% 60px; min-height: 80vh; }
-    .hero-content { width: 100%; text-align: center; padding: 0; order: 2; }
-    .hero-visual { position: relative; width: 100%; height: 400px; order: 1; clip-path: none; margin-bottom: 40px; }
-    .hero-title { font-size: 3.5rem; }
+    .hero-section { position: relative; min-height: 80vh; display: flex; align-items: center; padding: 0 5%; }
+    .hero-visual { 
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+        z-index: 1; opacity: 0.4; pointer-events: none;
+    }
+    .hero-content { 
+        position: relative; z-index: 2; width: 100%; text-align: center;
+        padding-top: 80px;
+    }
+    .hero-title { font-size: clamp(2.6rem, 10vw, 3.5rem); margin: 20px 0; line-height: 1.1; }
+    .hero-subtitle { font-size: 0.75rem; letter-spacing: 0.2em; opacity: 0.8; }
     
-    .cat-grid { grid-template-columns: 1fr; }
-    .cat-item { height: 60vh; }
+    .cat-grid { grid-template-columns: 1fr; gap: 30px; }
+    .cat-item { height: 50vh; }
+    .cat-overlay { padding: 40px 20px; }
     
-    .footer-top { grid-template-columns: 1fr; gap: 40px; }
+    .section-padding { padding: 50px 0; }
+    .section-head { margin-bottom: 30px; }
+    .section-title { font-size: 2.4rem !important; }
+
+    /* Compact Product Grid */
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .product-card { padding: 10px; }
+    .card-img-box { height: 160px; }
+    .product-title { font-size: 0.75rem !important; font-weight: 500; margin: 8px 0 4px; }
+    .product-price { font-size: 0.85rem !important; }
+    .compare-price { font-size: 0.65rem !important; }
+    .sale-badge { font-size: 0.55rem; padding: 2px 6px; }
+    .btn-add { padding: 8px; font-size: 0.65rem; }
+    
+    .footer-top { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .footer-top div { display: flex; flex-direction: column; align-items: center; }
+    
     .heritage-box { flex-direction: column; }
     .heritage-img, .heritage-text { width: 100%; }
-    .heritage-img { height: 350px; }
+    .heritage-img { height: 320px; }
+    .heritage-text { padding: 60px 20px; text-align: center; }
     
-    .col-lg-7, .col-lg-5 { flex: 0 0 100%; max-width: 100%; }
+    .row { margin-right: 0; margin-left: 0; display: block; }
+    .col-lg-7, .col-lg-5 { width: 100%; max-width: 100%; padding: 0; margin-bottom: 30px; }
+    
+    /* Responsive Helpers override */
+    .p-5 { padding: 2rem !important; }
+    .p-3 { padding: 1.5rem !important; }
+    .display-3 { font-size: 3rem !important; text-align: center; }
+    .h5 { font-size: 1.1rem !important; }
+    .section-title { font-size: 2.8rem !important; }
 }
